@@ -1,0 +1,12 @@
+
+php 소켓 정보 사이트 : https://medium.com/@cn007b/super-simple-php-websocket-example-ea2cd5893575
+
+php 소켓 체팅 사이트 : https://phppot.com/php/simple-php-chat-using-websocket/
+
+특정포트 사용중일때 검색 및 죽이기 : https://new93helloworld.tistory.com/138
+sudo lsof -i :"포트 번호"
+sudo kill -9 "프로세스 번호"
+
+
+
+=============================================================================================

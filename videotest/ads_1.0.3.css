@@ -1,0 +1,16 @@
+#adop-video-container {position: fixed; display:block;}
+#atop-video-total { position:relative; background-color:#000; box-shadow: 0 5px 10px 0 #999; }
+#adop-video {position:absolute;top: 30px;left: 0;background-color:#000; overflow: hidden;}
+#adop-video-container .adop-videoClose { position:absolute; top:5px; right:0px; }
+#adop-video-container .adop-videoClose a { display: block; width: 18px; height: 18px; color: #888; text-align: center; text-decoration: none; font-size:  1em; line-height: 1;}
+#adop-video-container .adop-videoClose a:hover { background-color:#555; }
+#adop-video-container .adopLink { position:absolute; bottom:7px; right:15px; color:#888; font-size:9pt; text-decoration: none; }
+#adop-video-container .adopLink:hover { color:#000; }
+#adop-adContainer {position: absolute;left: 0;}
+
+.adop-rb {bottom:10px; right:15px;}
+.adop-lb {bottom:10px; left:15px;}
+.adop-rt {top:10px; right:15px;}
+.adop-lt {top:10px; left:15px;}
+.adop-rb120 {bottom:120px; right:15px;}
+.adop-lb120 {bottom:120px; left:15px;}

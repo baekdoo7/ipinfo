@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>와이더 코드 테스트</title>
+</head>
+<p>
+
+<p>
+와이더 코드 테스트 입니다. <br />
+====================
+</p>
+<p>
+    와이더 기존 코드 입니다. <br />
+    ----------------------
+</p>
+<p>
+    <!--/* TargetingGates */-->
+<!--    /*-->
+<!--    <script type='text/javascript'>&lt;!&ndash;//<![CDATA[-->
+<!--    var tg_u = (location.protocol=='https:'?'https://adtg.widerplanet.com/delivery/wjs.php':'https://adtg.widerplanet.com/delivery/wjs.php');-->
+<!--    var tg_html = "<scr"+"ipt type='text/javascript' src='"+tg_u;-->
+<!--    tg_html += "?zoneid=19213";-->
+<!--    tg_html += '&category=' + 'sisunnews_content_300x250';-->
+<!--    tg_html += '&passback=' + escape("https://compass.adop.cc/RS/48dd9fdb-8a94-4546-9154-6ecc48ac10b7");-->
+<!--    tg_html += '&cb=' + Math.floor(Math.random()*99999999999);-->
+<!--    tg_html += (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));-->
+<!--    tg_html += "&loc=" + escape("http://www.sisunnews.co.kr");-->
+<!--    if (document.referrer) tg_html += "&referer=" + escape(document.referrer);-->
+<!--    if (document.title) tg_html += "&title=" + escape(document.title);-->
+<!--    if (document.mmm_fo) tg_html += "&mmm_fo=1";-->
+<!--    tg_html += "'><\/scr"+"ipt>";-->
+<!--    document.write(tg_html);-->
+<!--    //]]>&ndash;&gt;</script>-->
+<!--    */-->
+</p>
+
+
+
+
+<p>
+    와이더 새로운 코드 입니다. <br />
+    ------------------------
+    <script type="text/javascript">
+        WiderPlanetAdRendererVar = {
+            type : "script",
+            passback : "https://compass.adop.cc/RS/48dd9fdb-8a94-4546-9154-6ecc48ac10b7",
+            category : "sisunnews_content_300x250",
+            width : "300",
+            height : "250",
+            zoneid : "19213",
+            loc : "http://www.sisunnews.co.kr",
+            ref : document.referrer
+        };
+    </script>
+    <script>
+        console.log(document.referrer);
+        console.log(WiderPlanetAdRendererVar);
+    </script>>
+    <script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+</p>
+
+
+</body>
+</html>

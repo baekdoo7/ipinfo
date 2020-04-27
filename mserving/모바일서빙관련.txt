@@ -1,0 +1,66 @@
+
+테스트 주소
+http://compasstest.adop.cc/serving/ms.php?area_idx=9bafdb7c-084b-463a-92ff-89bd54eea097
+
+S3 동기화 주소
+Amazon S3/compass.adop.cc/adinfo_2018/GR
+
+ms_switch_list.php
+<?php
+$zonInfo = array(
+    "1d63f11d-350c-4123-aea0-0b62dfe5e897"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "27b66e0b-a29b-4c61-af0b-a5f311ba21d4"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "cb965fc3-a111-4b6f-95f4-0d5ceda52a58"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "8ed7eec5-06f2-4102-97bf-de5f60c19461"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "5393c6e7-da0b-477b-ab8d-8723240da0c7"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "5d77334c-1f6d-4e2b-ae88-5fd81817784a"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "5c942349-630b-47fd-bff1-8a79fcf3048a"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "b2f5e844-1521-48a3-bc98-5ee645472df8"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "2150c009-a0fd-4293-b0c3-27d1ea2b90b7"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "9bf60127-db6b-494e-ad0d-537ebef2699d"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "9bafdb7c-084b-463a-92ff-89bd54eea097"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "604964e1-1ab6-4ae8-ab7b-e76f3dc72c47"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "9f8da374-ce04-4971-b1f9-98b83d89a945"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "dd0aab42-9947-4929-84d7-bafef0ece9aa"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "3922a84c-4f2b-483e-a12a-7d0d0299e337"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0abc")
+);
+
+compass.adop.cc/adinfo_2018/GR/49f0123c-85f2-4fd8-9368-48a1599e0123/ad_info.txt 내용
+[{"area_idx":"5a152f3d-10fe-40ca-a9f9-0ede4cbeba7c",
+  "ad_weight":20},
+ {"area_idx":"8eea2483-bf9f-4701-9e2e-f232cfc9279e",
+  "ad_weight":20},
+ {"area_idx":"d0e28aba-a28b-4305-b785-0adfcd9ff341",
+  "ad_weight":20},
+ {"area_idx":"84f19162-f899-4ed8-a427-213bad0b1b12",
+  "ad_weight":20},
+ {"area_idx":"1e297736-2894-48b8-82b7-335380992cdc",
+  "ad_weight":20}]
+
+
+실제 걸린 영역
+$zonInfo = array(
+    "1d63f11d-350c-4123-aea0-0b62dfe5e897"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "dd0aab42-9947-4929-84d7-bafef0ece9aa"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "604964e1-1ab6-4ae8-ab7b-e76f3dc72c47"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "9f8da374-ce04-4971-b1f9-98b83d89a945"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "9bafdb7c-084b-463a-92ff-89bd54eea097"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "9bf60127-db6b-494e-ad0d-537ebef2699d"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "2150c009-a0fd-4293-b0c3-27d1ea2b90b7"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "b2f5e844-1521-48a3-bc98-5ee645472df8"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "5c942349-630b-47fd-bff1-8a79fcf3048a"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "5d77334c-1f6d-4e2b-ae88-5fd81817784a"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "5393c6e7-da0b-477b-ab8d-8723240da0c7"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "8ed7eec5-06f2-4102-97bf-de5f60c19461"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "cb965fc3-a111-4b6f-95f4-0d5ceda52a58"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123"),
+    "27b66e0b-a29b-4c61-af0b-a5f311ba21d4"=>array("GCode" => "49f0123c-85f2-4fd8-9368-48a1599e0123")
+);
+
+compass.adop.cc/adinfo_2018/GR/49f0123c-85f2-4fd8-9368-48a1599e0123/ad_info.txt 내용
+[{"area_idx":"5a152f3d-10fe-40ca-a9f9-0ede4cbeba7c","ad_weight":20},
+ {"area_idx":"8eea2483-bf9f-4701-9e2e-f232cfc9279e","ad_weight":20},
+ {"area_idx":"d0e28aba-a28b-4305-b785-0adfcd9ff341","ad_weight":20},
+ {"area_idx":"84f19162-f899-4ed8-a427-213bad0b1b12","ad_weight":20},
+ {"area_idx":"1e297736-2894-48b8-82b7-335380992cdc","ad_weight":20}]
+
+========================================================================================

@@ -1,0 +1,233 @@
+기존태그
+<태그유형3>
+<!-/* TargetingGates */->
+<script type='text/javascript'><!--//<![CDATA[
+ var tg_u = (location.protocol=='https:'?'https://adtg.widerplanet.com/delivery/wfr.php':'http://adtg.widerplanet.com/delivery/wfr.php');
+var tg_html = "<ifr" + "ame frameborder='0' scrolling='no' border='0' marginwidth='0' marginheight='0' width='너비' height='높이' src='"+tg_u;
+   tg_html += "?zoneid=ZONE_ID";
+tg_html += '&category=' + 'PAGE_CATEGORY';
+tg_html += '&passback=' + escape("PASSBACK_URL");
+tg_html += '&cb=' + Math.floor(Math.random()*99999999999);
+   tg_html += (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   tg_html += "&loc=" + escape(window.location);
+   if (document.referrer) tg_html += "&referer=" + escape(document.referrer);
+if (document.title) tg_html += "&title=" + escape(document.title);
+   if (document.mmm_fo) tg_html += "&mmm_fo=1";'
+   tg_html = "'><\/ifr""ame>";
+   document.write(tg_html);
+//]]>--></script>
+<!--/* TargetingGates */–>
+
+
+새로운태그
+<script type="text/javascript">
+WiderPlanetAdRendererVar = {
+    type : "script",
+    passback : "PASSBACK_URL",'
+    category : "PAGE_CATEGORY",
+    width : "WIDTH",
+    height : "HEIGHT",'
+    zoneid : "ZONE_ID"
+    loc : "PAGE_LOCATION"
+    ref : "REFERER_PAGE_LOCATION"
+};
+</script>
+<script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+
+======================================================================================
+<!--/* TargetingGates */-->
+<script type='text/javascript'><!--//<![CDATA[
+   var tg_u = (location.protocol=='https:'?'https://adtg.widerplanet.com/delivery/wjs.php':'https://adtg.widerplanet.com/delivery/wjs.php');
+var tg_html = "<scr"+"ipt type='text/javascript' src='"+tg_u;
+   tg_html += "?zoneid=20034";
+tg_html += '&category=' + 'plantynet_r_bottom_728x90';
+tg_html += '&passback=' + escape("https://compass.adop.cc/RS/e80a5b9d-13ea-48f9-b82b-aeff8bfecd6d");
+tg_html += '&cb=' + Math.floor(Math.random()*99999999999);
+   tg_html += (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   tg_html += "&loc=" + escape("https://www.plantynet.com/kor/main.asp");
+   if (document.referrer) tg_html += "&referer=" + escape(document.referrer);
+if (document.title) tg_html += "&title=" + escape(document.title);
+   if (document.mmm_fo) tg_html += "&mmm_fo=1";
+   tg_html += "'><\/scr"+"ipt>";
+   document.write(tg_html);
+//]]>--></script>
+
+<!--/* TargetingGates */-->
+<script type='text/javascript'><!--//<![CDATA[
+   var tg_u = (location.protocol=='https:'?'https://adtg.widerplanet.com/delivery/wjs.php':'https://adtg.widerplanet.com/delivery/wjs.php');
+var tg_html = "<scr"+"ipt type='text/javascript' src='"+tg_u;
+   tg_html += "?zoneid=5932629";
+tg_html += '&category=' + 'focusmchina_rb_300x250_test';
+tg_html += '&passback=' + escape("");
+tg_html += '&cb=' + Math.floor(Math.random()*99999999999);
+   tg_html += (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   tg_html += "&loc=" + escape("https://www.plantynet.com/kor/main.asp");
+   if (document.referrer) tg_html += "&referer=" + escape(document.referrer);
+if (document.title) tg_html += "&title=" + escape(document.title);
+   if (document.mmm_fo) tg_html += "&mmm_fo=1";
+   tg_html += "'><\/scr"+"ipt>";
+   document.write(tg_html);
+//]]>--></script>
+
+
+-- 다음 애드핏 --
+<ins class="kakao_ad_area" style="display:none;"
+ data-ad-unit    = "__param01__"
+ data-ad-width   = "__twidth__"
+ data-ad-height  = "__theight__"></ins>
+<script type="text/javascript" src="https://t1.daumcdn.net/adfit/static/ad.min.js" async></script>
+
+======================================================================================
+Wider Planet         net_idx : 535      compass_net_idx : 84efaf55-6426-44aa-9994-998dfe65c9d4
+Wider Planet(CPM)    net_idx : 1398     compass_net_idx : fb992c43-6b84-11e7-8214-02c31b446301
+테스트용(사용금지)        net_idx : 1488     compass_net_idx : a667f0a5-77d9-11ea-a87c-02c31b446301
+Daum AdFit           net_idx : 759      compass_net_idx : 5e0ce4ec-57ec-4dbd-9703-dc330d027c40
+======================================================================================
+tvdaily_test_rm_250x250 예시
+다음 애드핏
+1488 a667f0a5-77d9-11ea-a87c-02c31b446301 <= 신규 추가 네트웍크(net_idx)
+d4eb895c-a407-4978-b344-5568f4200e24      <= gp_idx
+c382d1eb-30a3-4789-a149-f56ac1b69089      <= cmp_idx
+a252ab7a-3306-4038-9475-3fb5001e4855      <= com_idx
+
+======================================================================================
+현재 걸려 있는 갯수 : 1536개
+======================================================================================
+echo "<script>console.log('size : ".$adv_size."')</script>";
+======================================================================================
+네트워크 그룹핑(애드유닛관리) G:구글,D:국내,O:해외,E:기타,A:애드오피운영(애드오피만 보임),R:추천네트워크의 경우,추가로 붙일것
+======================================================================================
+와이더 테스트 페이지
+http://compasstest.adop.cc/wider/test1.html
+======================================================================================
+부산일보 와이더 영역
+96b52bfd-9e1e-4829-9946-4c7edddcc00f
+와이더 패스백 da50ed19-118e-48ca-bb3f-31ca4f8eb2df
+
+<script type="text/javascript">
+WiderPlanetAdRendererVar = {
+    type : "script",
+    passback :"https://compass.adop.cc/RS/da50ed19-118e-48ca-bb3f-31ca4f8eb2df",
+    category : "busan_w_lb_160x600",
+    width : "160",
+    height : "600",
+    zoneid : "26392",
+    loc :window.location,
+    ref :document.referrer
+};
+</script>
+<script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+
+<!--/* TargetingGates */-->
+<script type='text/javascript'><!--//<![CDATA[
+   var tg_u = (location.protocol=='https:'?'https://adtg.widerplanet.com/delivery/wjs.php':'http://adtg.widerplanet.com/delivery/wjs.php');
+var tg_html = "<scr"+"ipt type='text/javascript' src='"+tg_u;
+   tg_html += "?zoneid=26392";
+tg_html += '&category=' + 'busan_w_lb_160x600';
+tg_html += '&passback=' + escape("https://compass.adop.cc/RS/da50ed19-118e-48ca-bb3f-31ca4f8eb2df");
+tg_html += '&cb=' + Math.floor(Math.random()*99999999999);
+   tg_html += (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   tg_html += "&loc=" + escape("http://www.busan.com/");
+   if (document.referrer) tg_html += "&referer=" + escape(document.referrer);
+if (document.title) tg_html += "&title=" + escape(document.title);
+   if (document.mmm_fo) tg_html += "&mmm_fo=1";
+   tg_html += "'><\/scr"+"ipt>";
+   document.write(tg_html);
+//]]>--></script>
+
+======================================================================================
+
+와이더 신규 템플릿
+
+<script type="text/javascript">
+WiderPlanetAdRendererVar = {
+    type : "script",
+    passback : "__passbackurl__",'
+    category : "__param02__",
+    width : "__twidth__",
+    height : "__theight__",'
+    zoneid : "__param01__"
+    loc : "__adop_page_url__"
+    ref : "REFERER_PAGE_LOCATION"
+};
+</script>
+<script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+======================================================================================
+<script type="text/javascript">
+WiderPlanetAdRendererVar = {
+    type : "script",
+    passback :"__passbackurl__",
+    category : "__param02__",
+    width : "__twidth__",
+    height : "__theight__",
+    zoneid : "__param01__",
+    loc :window.location,
+    ref :document.referrer
+};
+</script>
+<script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+======================================================================================
+<!--/* TargetingGates */-->
+<script type='text/javascript'><!--//<![CDATA[
+   var tg_u = (location.protocol=='https:'?'https://adtg.widerplanet.com/delivery/wjs.php':'https://adtg.widerplanet.com/delivery/wjs.php');
+var tg_html = "<scr"+"ipt type='text/javascript' src='"+tg_u;
+   tg_html += "?zoneid=__param01__";
+tg_html += '&category=' + '__param02__';
+tg_html += '&passback=' + escape("__passbackurl__");
+tg_html += '&cb=' + Math.floor(Math.random()*99999999999);
+   tg_html += (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+   tg_html += "&loc=" + escape("__adop_page_url__");
+   if (document.referrer) tg_html += "&referer=" + escape(document.referrer);
+if (document.title) tg_html += "&title=" + escape(document.title);
+   if (document.mmm_fo) tg_html += "&mmm_fo=1";
+   tg_html += "'><\/scr"+"ipt>";
+   document.write(tg_html);
+//]]>--></script>
+ data-ad-width   = "__twidth__"
+ data-ad-height  = "__theight__">
+
+
+
+=============================================
+<!--/* TargetingGates */-->
+<script type="text/javascript">
+WiderPlanetAdRendererVar = {
+    type : "script",
+    passback :"__passbackurl__",
+    category : "__param02__",
+    width : "__twidth__",
+    height : "__theight__",
+    zoneid : "__param01__",
+    loc :"__param03__",
+    ref :document.referrer
+};
+</script>
+<script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+ ==================================
+ 작업 내역
+ 0. 작업 공지
+    오후 2시 부터 와이더 플래닛 코드 변경에 따른 작업을 실시합니다.
+    작업 내용은 와이더 플래닛 코드 변경에 따른 탬플릿 변경.
+    기존 구코드로 적용되어 있는 코드를 일괄적으로 신 코드로 변경.
+    서빙서버에 올려 있는 캐시파일 리프래시 입니다.
+    작업이 끝난후 다시 공지 하겠습니다.
+
+
+
+
+ 1. advertise_ad 백업 advertise_ad_202004081354
+ 2. network_template 백업 network_template_202004081354
+ 3. network_template template 코드 변경 net_idx '84efaf55-6426-44aa-9994-998dfe65c9d4','fb992c43-6b84-11e7-8214-02c31b446301'
+
+    update network_template_test
+    set template = (select template from `network_template_202004081128` where net_idx  = 'a667f0a5-77d9-11ea-a87c-02c31b446301' and com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855')
+    where net_idx in ('84efaf55-6426-44aa-9994-998dfe65c9d4','fb992c43-6b84-11e7-8214-02c31b446301');
+
+ 4. convertWiderNewCode.php 에서 advertise_ad_test -> advertise_ad 로 수정 후 수행
+ 5. 캐시 작업(저스틴)
+ 6. 안내 멘트
+    와이더 플래닛 코드변경에 따른 작업이 완료 되었습니다.
+    현재 와이더 플래닛 코드가 나가고 있는 영역들 모니터링 부탁 드립니다.
+
+
+

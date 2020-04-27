@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>JTBCPlus AD Server Test</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <style>
+        .mnb_ad_video_area {
+            padding: 20px 0;
+            width: 100px;
+            height: 360px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .adBannerTopADClickPc {
+            position: absolute;
+            z-index: 1;
+            height: 320px;
+            width: 640px;
+            display: inline-block;
+        }
+
+        .mnb_ad_player_layer {
+            position: relative;
+            width: 640px;
+            height: 360px;
+            display: inline-block;
+        }
+
+        .mnb_ad_video_player {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .mnb_ad_btn_player_area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 640px;
+            height: 360px;
+            display: inline-block;
+        }
+
+        .ad_player_pc_pause {
+            background: url("https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_play2.png");
+            cursor: pointer;
+            outline: 0;
+            position: absolute;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            top: 93%;
+            left: 2%;
+            border: 0;
+        }
+
+        .mnb_ad_banner_blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            cursor: pointer;
+            outline: 0;
+        }
+
+        .ad_player_pc_mute {
+            background: url(https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_mute.png);
+            position: absolute;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            top: 93%;
+            left: 12%;
+            /*background: url(https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_mute.png) 90% 90% no-repeat;*/
+            cursor: pointer;
+            border: 0;
+            outline: 0;
+        }
+
+        .ad_player_pc_fulls {
+            position: absolute;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            top: 93%;
+            right: 4%;
+            background: url(https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_fullscreen.png) 90% 90% no-repeat;
+            cursor: pointer;
+            border: 0;
+            outline: 0;
+        }
+        .atom_ad_box {
+            display: block;
+            position: relative;
+            width: 640px;
+            height: 360px;
+            margin: auto;
+            background-color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<div class="mnb_ad_video_area" id="top_banner">
+    <div class="adBannerTopADClickPc"><a href="https://www.cosmopolitan.co.kr" target="_blank"><img
+            src="https://image.jtbcplus.kr/data/UPLOAD/ad_banner/TopADMov.png"></a></div>
+    <a>
+        <div class="mnb_ad_player_layer">
+            <video autobuffer="" class="mnb_ad_video_player" muted="muted" playsinline=""
+                   poster="https://image.jtbcplus.kr/data/UPLOAD/ad_img_banner/IMG_2019_09_05/000132720001.jpg"
+                   preload="none">
+                <source src="https://image.jtbcplus.kr/data/UPLOAD/ad_mov_banner/IMG_2019_09_05/000132721001.mp4"
+                        type="video/mp4">
+            </video>
+        </div>
+        <div class="mnb_ad_btn_player_area">
+            <button class="ad_player_pc_pause"
+                    style="background: url('https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_play2.png');"
+                    type="button">
+                <span class="mnb_ad_banner_blind">멈춤</span></button>
+            <button class="ad_player_pc_mute"
+                    style="background: url('https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_mute.png');"
+                    type="button">
+                <span class="mnb_ad_banner_blind">음소거해제</span></button>
+            <button class="ad_player_pc_fulls" type="button"><span class="mnb_ad_banner_blind">풀스크린</span></button>
+        </div>
+    </a></div>
+
+
+<div class="atom_ad_box" ">
+    <a href="http://dsp.adop.cc/serving/c?u=1592&amp;g=387&amp;c=1211&amp;cm=1523&amp;ta=1783&amp;i=5586&amp;ig=1543&amp;ar=5586&amp;tp=0&amp;pa=0&amp;pf=0&amp;pp=0&amp;rg=99&amp;r=https%3A%2F%2Fadop.cc&amp;s=http%3A%2F%2Flocalhost%3A8999%2Fjtbcplus%2Fcosmopolitan.html"
+       target="_blank">
+        <video autoplay="true" class="atom-ad-img"
+               id="atom-video-ads"
+               muted="muted" src="https://atomcdn.adop.cc/advideo/819c9fbfb075d62a16393b9fe4fcbaa5/7fb92c7ba94660445750f0c756b96316" style="width:640px;max-width: 100%; height: auto !important;"></video>
+    </a>
+    <div style="width: 640px;height: 30px;position: relative;margin-top: -40px;">
+        <button style=" background: url('https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_play2.png');width: 30px;height: 30px;cursor: pointer;border: 0;outline: 0;display: inline-block;float: left;">
+        </button>
+        <div style="width: 50px;height:1px;float: left;display: inline-block;"></div>
+        <button style=" background: url('https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_mute.png');width: 30px;height: 30px;cursor: pointer;border: 0;outline: 0;display: inline-block;float: left;">
+        </button>
+        <div style="width: 50px;height:1px;float: right;display: inline-block;"></div>
+        <button style=" background: url(https://image.jtbcplus.kr/data/UPLOAD/ad_banner/btn_fullscreen.png); width: 30px;height: 30px;cursor: pointer;border:0;outline: 0;display: inline-block;float: right;">
+        </button>
+
+
+    </div>
+
+    <script src="//data.adop.cc/imp?u=1592&amp;a=b6bdf1ed-96f3-488d-96f8-2d7d3937396e&amp;g=387&amp;c=1211&amp;cm=1523&amp;ta=1783&amp;i=5586&amp;ig=1543&amp;ar=5586&amp;tp=0&amp;pa=0&amp;pf=0&amp;pp=0&amp;rg=99&amp;ty=imp&amp;ke=d9c2300a-fabf-4294-86de-72af32fd3f37"></script>
+</div>
+</body>
+</html>

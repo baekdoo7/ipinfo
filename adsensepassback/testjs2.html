@@ -1,0 +1,269 @@
+//========================================================
+//기존 코드 humoruniv_w_lt_120x600
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+style="display:inline-block;width:120px;height:600px"
+data-ad-client="ca-pub-8324074946633284"
+data-ad-slot="5129335654"
+data-override-format="true"
+data-page-url="http://humoruniv.com/"
+data-passback="8fbb0c46-14dc-4812-909c-a92fc3fce2a6"
+    >
+    </ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+var listener582=listener582||function(a){if("string"!=typeof a.data)return!1;try{var b=JSON.parse(a.data)}catch(c){return!1}if(b.res)return"passback01"==b.res?goPassBack104():goPassBack102(),!0},goPassBack102=goPassBack102||function(){try{var a=document.querySelector("ins.adsbygoogle").getAttribute("data-passback"),b=document.getElementById("aswift_0")}catch(c){console.log("\ud328\uc2a4\ubc31 \ub370\uc774\ud0c0 \uc77d\uc5b4\uc624\ub2e4\uac00 \uc5d0\ub7ec!")}if(!a||!b)return!1;postMessage("792_"+frameElement.id+
+    "_"+a,"*");window.top._gqidtestmode&&console.log("a.\ubcc0\uacbd\ucc98\ub9ac \uc2e4\ud589\ub428")},goPassBack104=goPassBack104||function(){try{var a=document.querySelector("ins.adsbygoogle").getAttribute("data-passback"),b=document.getElementById("aswift_0")}catch(c){console.log("\ud328\uc2a4\ubc31 \ub370\uc774\ud0c0 \uc77d\uc5b4\uc624\ub2e4\uac00 \uc5d0\ub7ec!")}if(!a||!b)return!1;a="<script src='//compass.adop.cc/RE/"+a+"'></scr"+"ipt>";b.setAttribute("onload","");ifrDoc=b.contentDocument||b.contentWindow.document;
+    null!=ifrDoc&&(ifrDoc.open(),ifrDoc.write(a),ifrDoc.close())};window.addEventListener?window.addEventListener("message",listener582,!1):window.attatchEvent&&window.attachEvent("onmessage",listener582);
+setTimeout(function(){var a=document.getElementById("aswift_0");window.top._gqidtestmode&&console.log("aswift_0 \uc5d8\ub9ac\uba3c\ud2b8\uc5d0 \uc811\uadfc\ub428!!!");if(a){if(null!=a.getAttribute("src")){var b=a.parentNode;b.removeChild(a);b.innerHTML="<iframe id='aswift_0' frameborder='0' marginwidth='0' marginheight='0' paddingwidth='0' paddingheight='0' scrolling='no' style='width: 100%; height: 100%;' ></iframe>";window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*");
+    return!1}a=a.contentDocument||a.contentWindow.document;if(null!=a){try{b=a.getElementById("google_ads_frame1").getAttribute("data-google-query-id")}catch(c){window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*");return}b?window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"'+b+'"}',"*"):window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*")}else window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*")}else window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',
+    "*")},1E3);
+</script>
+
+
+//========================================================
+
+//수정된 태그
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:120px;height:600px"
+     data-ad-client="ca-pub-8324074946633284"
+     data-ad-slot="5129335654"
+     data-override-format="true"
+     data-page-url="http://humoruniv.com/"
+     data-passback="8fbb0c46-14dc-4812-909c-a92fc3fce2a6"
+>
+</ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    //이벤트 처리를 위한 리스너 정의
+    var listener582 = listener582 || function(e){
+        console.log('메시지 받음 listener582 : '+ e.data);
+        //메시지가 스트링이 아니면 리턴
+        //if(typeof e.data != "string"){
+        //    return false;
+        //}
+        //메시지가 제이슨 타입이 아니면 리턴
+        try {
+            var strMsg = JSON.parse(e.data);
+        } catch (error) {
+            console.log('메시지 받은거 json파싱 에러 listener582');
+            return false;
+        }
+        //에드센스 광고 있는 경우만 광고 키값을 전역변수에 넣어둠.
+        if(strMsg.res){
+            console.log('strMsg 파싱 처리 됨 : ' + strMsg.res );
+            if(strMsg.res == "passback01" ){
+                //패스백 처리
+                console.log('goPassBack104 패스백으로 호출함');
+                goPassBack104();
+                return  true;
+            }
+            else{
+                //패스백 처리
+                goPassBack102();
+                console.log('goPassBack102 패스백으로 호출함');
+                return  true;
+            }
+        }
+    };
+    //패스백 처리
+    var goPassBack102 = goPassBack102 || function () {
+        console.log("setTimeout 밖에 패스백 로직이(goPassBack102) 실행됨!!!");
+        //영역 코드 확인
+        try {
+            var zoneCD = document.querySelector("ins.adsbygoogle").getAttribute("data-passback");
+            var ifr    = document.getElementById('aswift_0');
+        }
+        catch (e) {
+            console.log("패스백 데이타 읽어오다가 에러!");
+        }
+        //console.log("패스백 요청받음");
+        if(!zoneCD){
+            return false;
+        }
+        if(!ifr){
+            return  false;
+        }
+
+        postMessage("792_"+frameElement.id+"_"+zoneCD,"*");
+        console.log('a.변경처리 실행됨');
+        return;
+    };
+    //패스백 처리
+    var goPassBack104 = goPassBack104 || function () {
+        console.log("setTimeout 밖에 패스백 로직이(goPassBack104) 실행됨!!!");
+        //영역 코드 확인
+        try {
+            var zoneCD = document.querySelector("ins.adsbygoogle").getAttribute("data-passback");
+            var ifr    = document.getElementById('aswift_0');
+        }
+        catch (e) {
+            console.log("패스백 데이타 읽어오다가 에러!");
+        }
+        //console.log("패스백 요청받음");
+        if(!zoneCD){
+            console.log('패스백용 존코드 읽지 못해 패스백 종료!');
+            return false;
+        }
+        if(!ifr){
+            console.log('aswift_0 를 찾지 못해 종료!');
+            return  false;
+        }
+        //adsense 아이프레임일 경우 처리
+        if(ifr.getAttribute("src") != null){
+            console.log('패스백 처리 goPassBack104 aswift_0에 src 있어 아이프레임 새로 생성 처리!');
+            var googleNoFrameParent = ifr.parentNode;
+            googleNoFrameParent.removeChild(ifr);
+
+            var strIframe     = "<iframe id='aswift_0' frameborder='0' marginwidth='0' marginheight='0' paddingwidth='0' paddingheight='0' scrolling='no' style='width: 100%; height: 100%;' ></iframe>";
+            googleNoFrameParent.innerHTML = strIframe;
+            ifr = document.getElementById('aswift_0');
+        }
+
+        console.log('aswift_0에 패스백 re로 진행!');
+        var iurl = "//compass.adop.cc/RE/" + zoneCD;
+        var strScriptLink = "<scr"+"ipt src='"+iurl+"'><\/scr"+"ipt>";
+        ifr.setAttribute("onload","");
+        ifrDoc = ifr.contentDocument || ifr.contentWindow.document;
+        if(ifrDoc != null){
+            ifrDoc.open();
+            ifrDoc.write(strScriptLink);
+            ifrDoc.close();
+        }
+        return ;
+    };
+    //이벤트 리스너 등록
+    if(window.addEventListener){
+        window.addEventListener("message",listener582,false);
+    }
+    else if(window.attatchEvent){
+        window.attachEvent("onmessage",listener582);
+    }
+
+    //adsense 광고 체크
+    setTimeout(function(){
+        //패스백 처리
+        console.log("setTimeout 실행됨!!!");
+        var googleNoFrame =  document.getElementById('aswift_0');
+        console.log("aswift_0 엘리먼트에 접근됨!!!");
+        if(googleNoFrame){
+            if(googleNoFrame.getAttribute("src") != null){
+                if(googleNoFrame.getAttribute("data-google-query-id") != null){
+                    console.log("window.top.postMessage 호출함!!!("+googleNoFrame.getAttribute("data-google-query-id")+")");
+                    window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"'+googleNoFrame.getAttribute("data-google-query-id")+'"}','*');
+                    return ;
+                }
+                else{
+                    //강제 콜백 처리
+                    console.log("aswift_0 의 src가 존재하고 data-google-query-id 없어 강제 콜!!!");
+                    window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}','*');
+                    return ;
+                }
+            }
+
+            var googleNoFrameDoc = googleNoFrame.contentDocument || googleNoFrame.contentWindow.document;
+            if(googleNoFrameDoc != null){
+                console.log("aswift_0 의 document 이상없이 접근!!!");
+                try {
+                    var googleQueryId = googleNoFrameDoc.getElementById("google_ads_frame1").getAttribute("data-google-query-id");
+                }catch (e) {
+                    console.log("aswift_0 의 google_ads_frame1 에 접근도중 에러 발생(패스백으로 대치)!!!");
+                    //goPassBack102();
+                    window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}','*');
+                    return ;
+                }
+
+                console.log("aswift_0 의 google_ads_frame1 에 접근됨!!!");
+                //document.getElementById("aswift_0").contentWindow.document.getElementById("google_ads_frame1").getAttribute("data-google-query-id");
+                if(googleQueryId){
+                    console.log("window.top.postMessage 호출함!!!");
+                    window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"'+googleQueryId+'"}','*');
+                }
+                else{
+                    console.log("data-google-query-id 값이 없어 패스백 실행!!!");
+                    //goPassBack102();
+                    window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}','*');
+                }
+            }
+            else{
+                //패스백 처리
+                console.log("aswift_0 의 document 가 없어 패스백 실행!!!");
+                //goPassBack102();
+                window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}','*');
+            }
+        }
+        else{
+            //패스백 처리
+            console.log("aswift_0 iframe 이 없어 패스백 실행!!!");
+            //goPassBack102();
+            window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}','*');
+        }
+    },2000);
+
+</script>
+
+
+//=======================================================
+//console.log 없는 버전
+
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:120px;height:600px"
+     data-ad-client="ca-pub-8324074946633284"
+     data-ad-slot="5129335654"
+     data-override-format="true"
+     data-page-url="http://humoruniv.com/"
+     data-passback="8fbb0c46-14dc-4812-909c-a92fc3fce2a6"
+>
+</ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    var listener582=listener582||function(a){try{var b=JSON.parse(a.data)}catch(c){return!1}if(b.res)return"passback01"==b.res?goPassBack104():goPassBack102(),!0},goPassBack102=goPassBack102||function(){try{var a=document.querySelector("ins.adsbygoogle").getAttribute("data-passback"),b=document.getElementById("aswift_0")}catch(c){console.log("\ud328\uc2a4\ubc31 \ub370\uc774\ud0c0 \uc77d\uc5b4\uc624\ub2e4\uac00 \uc5d0\ub7ec!")}if(!a||!b)return!1;postMessage("792_"+frameElement.id+"_"+a,"*")},goPassBack104=
+        goPassBack104||function(){try{var a=document.querySelector("ins.adsbygoogle").getAttribute("data-passback"),b=document.getElementById("aswift_0")}catch(d){console.log("\ud328\uc2a4\ubc31 \ub370\uc774\ud0c0 \uc77d\uc5b4\uc624\ub2e4\uac00 \uc5d0\ub7ec!")}if(!a||!b)return!1;if(null!=b.getAttribute("src")){var c=b.parentNode;c.removeChild(b);c.innerHTML="<iframe id='aswift_0' frameborder='0' marginwidth='0' marginheight='0' paddingwidth='0' paddingheight='0' scrolling='no' style='width: 100%; height: 100%;' ></iframe>";
+            b=document.getElementById("aswift_0")}a="<script src='//compass.adop.cc/RE/"+a+"'></scr"+"ipt>";b.setAttribute("onload","");ifrDoc=b.contentDocument||b.contentWindow.document;null!=ifrDoc&&(ifrDoc.open(),ifrDoc.write(a),ifrDoc.close())};window.addEventListener?window.addEventListener("message",listener582,!1):window.attatchEvent&&window.attachEvent("onmessage",listener582);
+    setTimeout(function(){var a=document.getElementById("aswift_0");if(a)if(null!=a.getAttribute("src"))null!=a.getAttribute("data-google-query-id")?window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"'+a.getAttribute("data-google-query-id")+'"}',"*"):window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*");else if(a=a.contentDocument||a.contentWindow.document,null!=a){try{var b=a.getElementById("google_ads_frame1").getAttribute("data-google-query-id")}catch(c){window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',
+        "*");return}b?window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"'+b+'"}',"*"):window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*")}else window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*");else window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*")},2E3);
+</script>
+
+
+
+//==========================
+문화일보 원래 소스
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:120px;height:600px"
+     data-ad-client="ca-pub-3665100911591867"
+     data-ad-slot="6142675717"
+     data-override-format="true"
+     data-page-url="http://www.munhwa.com/"
+     data-passback="d6772b73-3ca7-47e5-bbd0-836d2f5aca48"
+>
+</ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+
+    var listener582=listener582||function(a){if("string"!=typeof a.data)return!1;try{var b=JSON.parse(a.data)}catch(c){return!1}if(b.res)return"passback01"==b.res?goPassBack104():goPassBack102(),!0},goPassBack102=goPassBack102||function(){try{var a=document.querySelector("ins.adsbygoogle").getAttribute("data-passback"),b=document.getElementById("aswift_0")}catch(c){console.log("\ud328\uc2a4\ubc31 \ub370\uc774\ud0c0 \uc77d\uc5b4\uc624\ub2e4\uac00 \uc5d0\ub7ec!")}if(!a||!b)return!1;postMessage("792_"+frameElement.id+
+        "_"+a,"*");window.top._gqidtestmode&&console.log("a.\ubcc0\uacbd\ucc98\ub9ac \uc2e4\ud589\ub428")},goPassBack104=goPassBack104||function(){try{var a=document.querySelector("ins.adsbygoogle").getAttribute("data-passback"),b=document.getElementById("aswift_0")}catch(c){console.log("\ud328\uc2a4\ubc31 \ub370\uc774\ud0c0 \uc77d\uc5b4\uc624\ub2e4\uac00 \uc5d0\ub7ec!")}if(!a||!b)return!1;a="<script src='//compass.adop.cc/RE/"+a+"'></scr"+"ipt>";b.setAttribute("onload","");ifrDoc=b.contentDocument||b.contentWindow.document;
+        null!=ifrDoc&&(ifrDoc.open(),ifrDoc.write(a),ifrDoc.close())};window.addEventListener?window.addEventListener("message",listener582,!1):window.attatchEvent&&window.attachEvent("onmessage",listener582);
+    setTimeout(function(){var a=document.getElementById("aswift_0");window.top._gqidtestmode&&console.log("aswift_0 \uc5d8\ub9ac\uba3c\ud2b8\uc5d0 \uc811\uadfc\ub428!!!");if(a){if(null!=a.getAttribute("src")){var b=a.parentNode;b.removeChild(a);b.innerHTML="<iframe id='aswift_0' frameborder='0' marginwidth='0' marginheight='0' paddingwidth='0' paddingheight='0' scrolling='no' style='width: 100%; height: 100%;' ></iframe>";window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*");
+        return!1}a=a.contentDocument||a.contentWindow.document;if(null!=a){try{b=a.getElementById("google_ads_frame1").getAttribute("data-google-query-id")}catch(c){window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*");return}b?window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"'+b+'"}',"*"):window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*")}else window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',"*")}else window.top.postMessage('{"adopMsgType":"checkit","adopGqid":"__baekdoo__"}',
+        "*")},1E3);
+
+</script>
+

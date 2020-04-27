@@ -1,0 +1,47 @@
+{
+  "existad"    : true,
+  "loadblock"  : true,
+  "refreshtime": 60,
+  "adinfos"    : [
+      {
+        "location": "top",
+        "width"   : "970",
+        "height"  : "90",
+        "timer"   : "0",
+        "htmlcd"  : "<img src=\"img/970x90.jpg\" style=\"width:970px;height:90px;\">",
+        "htmlcd"  : "PGltZyBzcmM9ImltZy85NzB4OTAuanBnIiBzdHlsZT0id2lkdGg6OTcwcHg7aGVpZ2h0OjkwcHg7Ij4="
+      },
+    {
+      "location": "footer",
+      "width"   : "300",
+      "height"  : "250",
+      "timer"   : "0",
+      "htmlcd"  : "<img src=\"img/300x250.jpg\" style=\"width:300px;height:250px;\">",
+      "htmlcd"  : "PGltZyBzcmM9ImltZy8zMDB4MjUwLmpwZyIgc3R5bGU9IndpZHRoOjMwMHB4O2hlaWdodDoyNTBweDsiPg=="
+    },
+    {
+      "location": "inread",
+      "width"   : "320",
+      "height"  : "320",
+      "timer"   : "0",
+      "htmlcd"  : "<img src=\"img/320x320.jpg\" style=\"width:320px;height:320px;\">",
+      "htmlcd"  : "PGltZyBzcmM9ImltZy8zMjB4MzIwLmpwZyIgc3R5bGU9IndpZHRoOjMyMHB4O2hlaWdodDozMjBweDsiPg=="
+    },
+    {
+      "location": "popup1",
+      "width"   : "1280",
+      "height"  : "720",
+      "timer"   : "5",
+      "htmlcd"  : "<img src=\"img/1280x720.jpg\" style=\"width:1280px;height:720px;\">",
+      "htmlcd"  : "PGltZyBzcmM9ImltZy8xMjgweDcyMC5qcGciIHN0eWxlPSJ3aWR0aDoxMjgwcHg7aGVpZ2h0OjcyMHB4OyI+"
+    },
+    {
+      "location": "full",
+      "width"   : "720",
+      "height"  : "300",
+      "timer"   : "10",
+      "htmlcd"  : "<img src=\"img/720x300.jpg\" style=\"width:720px;height:300px;\">",
+      "htmlcd"  : "PGltZyBzcmM9ImltZy83MjB4MzAwLmpwZyIgc3R5bGU9IndpZHRoOjcyMHB4O2hlaWdodDozMDBweDsiPg=="
+    }
+  ]
+}

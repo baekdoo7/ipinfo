@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>와이더 코드 테스트</title>
+</head>
+<body>
+
+<p>
+    레퍼러 체크를 위한 코드 입니다. <br />
+    ------------------------  <br />
+    <a href="widertest.html" target="_self">페이지이동</a>
+
+</p>
+
+<p>
+    와이더 새로운 코드 입니다. <br />
+    ------------------------
+    <script type="text/javascript">
+        WiderPlanetAdRendererVar = {
+            type : "script",
+            passback : "https://compass.adop.cc/RS/dfa61d88-6e0a-47ab-aa14-f802df3ab47a",
+            category : "asiatoday_content_250x250",
+            width : "250",
+            height : "250",
+            zoneid : "20037",
+            loc : "http://www.adop.co.kr/",
+            ref : document.referrer
+        };
+    </script>
+    <script>
+        console.log(document.referrer);
+        console.log(WiderPlanetAdRendererVar);
+    </script>>
+    <script src="//cdn-aitg.widerplanet.com/js/adr.js" type="text/javascript"></script>
+</p>
+</body>
+</html>
