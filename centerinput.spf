@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>davinci</string>
+			<key>host</key>
+			<string>compass-cluster.cluster-cnzcxy7quzcs.ap-northeast-2.rds.amazonaws.com</string>
+			<key>kcid</key>
+			<string>3740108994748451210</string>
+			<key>name</key>
+			<string>compassReal_master클러스터</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>adopadmin</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentFilter</key>
+			<dict/>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0
+			b3BYJG9iamVjdHMSAAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRk
+			YXRhgAGtCwwZGhscHSEoLDA1OlUkbnVsbNMNDg8QFBhXTlMua2V5
+			c1pOUy5vYmplY3RzViRjbGFzc6MREhOAAoADgASjFRYXgAWABoAI
+			gAxUdHlwZVRyb3dzVGtleXNfECZTZWxlY3Rpb25EZXRhaWxUeXBl
+			UHJpbWFyeUtleWVkRGV0YWlsc9MNDg8eHyCgoIAH0iIjJCVaJGNs
+			YXNzbmFtZVgkY2xhc3Nlc18QE05TTXV0YWJsZURpY3Rpb25hcnmj
+			JCYnXE5TRGljdGlvbmFyeVhOU09iamVjdNIODykroSqACYAL0g8t
+			Li9ZTlMuc3RyaW5ngApWdWlfaWR40iIjMTJfEA9OU011dGFibGVT
+			dHJpbmejMTM0WE5TU3RyaW5nWE5TT2JqZWN00iIjNjdeTlNNdXRh
+			YmxlQXJyYXmjNjg5V05TQXJyYXlYTlNPYmplY3TSIiMmO6ImPFhO
+			U09iamVjdAAIABEAGgAkACkAMgA3AEkATABRAFMAYQBnAG4AdgCB
+			AIgAjACOAJAAkgCWAJgAmgCcAJ4AowCoAK0A1gDdAN4A3wDhAOYA
+			8QD6ARABFAEhASoBLwExATMBNQE6AUQBRgFNAVIBZAFoAXEBegF/
+			AY4BkgGaAaMBqAGrAAAAAAAAAgEAAAAAAAAAPQAAAAAAAAAAAAAA
+			AAAAAbQ=
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {2173, 1302}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>
+
+select *
+from `platon`.`network_template`
+where net_ref = 1488
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+limit 10;
+
+
+
+select *
+from `davinci`.`d_user_info`
+where com_idx in (
+'a252ab7a-3306-4038-9475-3fb5001e4855',
+'616ad07b-78aa-11ea-a87c-02c31b446301',
+'4e045487-78ab-11ea-a87c-02c31b446301',
+'26c4b0bb-78ab-11ea-a87c-02c31b446301',
+'4e045487-78ab-11ea-a87c-02c31b446301',
+'6aa87898-78ac-11ea-a87c-02c31b446301',
+'8e9f3acf-78ac-11ea-a87c-02c31b446301',
+'9725512c-78ac-11ea-a87c-02c31b446301'
+)
+limit 30;
+
+
+select a.com_idx, b.`ui_email`,b.`ui_name`
+from   `platon`.`network_template` as a join `davinci`.`d_user_info` as b on a.com_idx = b.`com_idx`
+where a.`net_ref` = 1488
+limit 30;
+
+
+
+
+select CONCAT('&lt;center&gt;\n',template,'\n&lt;/center&gt;')
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100;
+</string>
+			<key>table</key>
+			<string>d_user_info</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>387</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>select template
+from `platon`.`network_template`
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>update `platon`.`network_template`
+set `template` = CONCAT('&lt;div style="text-align:center;"&gt;\n',template,'\n&lt;/div&gt;')
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null</string>
+		<string>select template
+from `platon`.`network_template_test`
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>update `platon`.`network_template_test`
+set `template` = CONCAT('&lt;div style="text-align:center;"&gt;\n',template,'\n&lt;/div&gt;')
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null</string>
+		<string>update `platon`.`network_template_test`
+set `template` = CONCAT('&lt;center&gt;\n',template,'\n&lt;/center&gt;')
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null</string>
+		<string>select CONCAT('&lt;center&gt;\n',template,'\n&lt;/center&gt;')
+from `platon`.`network_template_test`
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+and template like "%center%"
+limit 100</string>
+		<string>### center 태그 작업
+select CONCAT('&lt;center&gt;\n',template,'\n&lt;/center&gt;')
+from `platon`.`network_template`
+where net_ref in ("1486","1469","1455","1453","1454","1452","1451","1446","1445","1436","1428","1425","1418","1416","1412","1411","1450","1408","1398","1396","1397","1392","1369","1371","1366","1307","1230","1164","1022","995","793","759","533","534","535","536") 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>### center 태그 작업
+select CONCAT('&lt;center&gt;\n',template,'\n&lt;/center&gt;')
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select CONCAT('&lt;center&gt;\n',template,'\n&lt;/center&gt;')
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select CONCAT('&lt;center&gt;\n',template,'&lt;/center&gt;')
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select CONCAT('&lt;center&gt;',template,'&lt;/center&gt;')
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select '&lt;center&gt;'+template+'&lt;/center&gt;'
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select template
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is not null
+limit 100</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+and template is null
+limit 100</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+limit 100</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in (
+"1486",
+"1469",
+"1455",
+"1453",
+"1454",
+"1452",
+"1451",
+"1446",
+"1445",
+"1436",
+"1428",
+"1425",
+"1418",
+"1416",
+"1412",
+"1411",
+"1450",
+"1408",
+"1398",
+"1396",
+"1397",
+"1392",
+"1369",
+"1371",
+"1366",
+"1307",
+"1230",
+"1164",
+"1022",
+"995",
+"793",
+"759",
+"533",
+"534",
+"535",
+"536"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+limit 10</string>
+		<string>select *
+from `platon`.`network_template`
+where net_ref in (
+"1488"
+) 
+and   com_idx = 'a252ab7a-3306-4038-9475-3fb5001e4855'
+limit 10</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.6.10</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

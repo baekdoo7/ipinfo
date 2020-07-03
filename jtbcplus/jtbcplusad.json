@@ -3,16 +3,25 @@
   "loadblock"  : true,
   "refreshtime": 60,
   "adinfos"    : [
-      {
-        "location": "top",
-        "width"   : "970",
-        "height"  : "90",
-        "timer"   : "0",
-        "htmlcd"  : "<img src=\"img/970x90.jpg\" style=\"width:970px;height:90px;\">",
-        "htmlcd"  : "PGltZyBzcmM9ImltZy85NzB4OTAuanBnIiBzdHlsZT0id2lkdGg6OTcwcHg7aGVpZ2h0OjkwcHg7Ij4="
-      },
     {
-      "location": "footer",
+      "location": "skin",
+      "width"   : "1900",
+      "height"  : "975",
+      "timer"   : "0",
+      "htmlcd"  : "<a href=\"null\" target=\"_blank\" style=\"cursor:pointer;\"><img src=\"img/1900x975.jpg\" style=\"width:100%;\"></a>",
+      "htmlcd"  : "PGEgaHJlZj0ibnVsbCIgdGFyZ2V0PSJfYmxhbmsiIHN0eWxlPSJjdXJzb3I6cG9pbnRlcjsiPjxpbWcgc3JjPSJpbWcvMTkwMHg5NzUuanBnIiBzdHlsZT0id2lkdGg6MTAwJTsiPjwvYT4="
+    },
+
+    {
+      "location": "top1",
+      "width"   : "970",
+      "height"  : "90",
+      "timer"   : "0",
+      "htmlcd"  : "<img src=\"img/970x90.jpg\" style=\"width:970px;height:90px;\">",
+      "htmlcd"  : "PGltZyBzcmM9ImltZy85NzB4OTAuanBnIiBzdHlsZT0id2lkdGg6OTcwcHg7aGVpZ2h0OjkwcHg7Ij4="
+    },
+    {
+      "location": "footer1",
       "width"   : "300",
       "height"  : "250",
       "timer"   : "0",
@@ -20,7 +29,7 @@
       "htmlcd"  : "PGltZyBzcmM9ImltZy8zMDB4MjUwLmpwZyIgc3R5bGU9IndpZHRoOjMwMHB4O2hlaWdodDoyNTBweDsiPg=="
     },
     {
-      "location": "inread",
+      "location": "inread1",
       "width"   : "320",
       "height"  : "320",
       "timer"   : "0",
@@ -36,7 +45,7 @@
       "htmlcd"  : "PGltZyBzcmM9ImltZy8xMjgweDcyMC5qcGciIHN0eWxlPSJ3aWR0aDoxMjgwcHg7aGVpZ2h0OjcyMHB4OyI+"
     },
     {
-      "location": "full",
+      "location": "full1",
       "width"   : "720",
       "height"  : "300",
       "timer"   : "10",

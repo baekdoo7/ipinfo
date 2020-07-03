@@ -39,6 +39,9 @@
     }
 </script>
 <button onclick="abc();">눌러</button>
+<iframe src="http://newsis.com/ad/viewad/AD_129728_ADLOC_00019.html" width="120px" height="600px"></iframe>
+<br />
+<iframe class="lazy_iframe" src="http://newsis.com/ad/viewad/AD_129560_ADLOC_00018.html" scrolling="no" frameborder="0" marginheight="0" marginwidth="0" width="728" height="90"></iframe>
 </html>
 
 

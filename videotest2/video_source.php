@@ -1,10 +1,24 @@
 <?php
+
+$rnd = rand(1,4);
+
+if($rnd == 1){
+    header('Location: http://adopvideocdn.adop.cc/1.mp4');
+}
+elseif ($rnd == 2 ){
+    header('Location: http://adopvideocdn.adop.cc/2.mp4');
+}
+elseif ($rnd == 3){
+    header('Location: http://adopvideocdn.adop.cc/3.mp4');
+}
+else{
+    header('Location: http://adopvideocdn.adop.cc/4.mp4');
+}
+
+
+
+
 ?>
 
-<div>
-    비디오 테스트!
-</div>
-<video width="320" height="240" controls style="margin-bottom: 50px;">
-    <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/485050/movie.mp4" type="video/mp4">
-</video>
+
 

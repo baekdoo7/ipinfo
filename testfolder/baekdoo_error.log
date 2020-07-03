@@ -1,0 +1,5 @@
+Error executing "GetObject" on "https://adop-amp-test.s3.ap-northeast-2.amazonaws.com/test/1.png"; AWS HTTP error: Client error: `GET https://adop-amp-test.s3.ap-northeast-2.amazonaws.com/test/1.png` resulted in a `403 Forbidden` response:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>InvalidAccessKeyId</Code><Message>The AWS Access Key Id you provided (truncated...)
+ InvalidAccessKeyId (client): The AWS Access Key Id you provided does not exist in our records. - <?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>InvalidAccessKeyId</Code><Message>The AWS Access Key Id you provided does not exist in our records.</Message><AWSAccessKeyId>AKIAWNMRMGA2APMAZZEG</AWSAccessKeyId><RequestId>A554EC2080E2FCC7</RequestId><HostId>YiNFjblRzFCq51RvxULaX90+si+apifAemyL4FqPlg12/9wJqX6J5nCAVFKz41fyNwdhXOkDqhM=</HostId></Error>

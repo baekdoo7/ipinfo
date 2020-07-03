@@ -3,7 +3,7 @@ window.adoptag = window.adoptag || {cmd: []};
 //환경변수 설정
 adoptag.adReady     = false; //광고 노출 준비
 adoptag.directAd    = false; //직광고 여부 false 면 네트워크 광고 노출
-adoptag.delayTime   = 1000;  //직광고 대기 시간(ms)
+adoptag.delayTime   = 5000;  //직광고 대기 시간(ms)
 adoptag.atomUrl     = "";  //아톰 요청 주소
 
 
@@ -71,7 +71,7 @@ adoptag.display = function (k) {
             //직광고 있을시 리프레시 타임 세팅
             if(typeof adoptag.adinfo.refreshtime != "undefined" && adoptag.adinfo.refreshtime > 0) {//리프레시 타임 세팅
                 //팝업 및 풀 배너의 경우 리프레쉬 적용 않함.
-                if(adopPosition.toLowerCase() != "popup" && adopPosition.toLowerCase() != "full" ){
+                if(adopPosition.toLowerCase() != "popup" && adopPosition.toLowerCase() != "full" && adopPosition.toLowerCase() != "skin"){
                     setTimeout(function () {
                         adoptag.display(k);
                     },adoptag.adinfo.refreshtime*1000);
@@ -90,6 +90,9 @@ adoptag.display = function (k) {
                 if(adExist){//아톰광고 있으며 로드블록이 아니면서 영역광고가 있는경우
                     if(adopPosition.toLowerCase() == 'popup' || adopPosition.toLowerCase() == 'full'){//popup,full 영역의 경우
                         adoptag.fullPopUpAdWrite(k,adopPosition,adopWidth,adopHeight,adAfterTime);
+                    }
+                    else if(adopPosition.toLowerCase() == "skin"){//스킨배너일 경우
+                        adoptag.skinAdWrite(k,adopPosition,adopWidth,adopHeight);
                     }
                     else{//직광고 이면서 popup,full 이 아닌경우
                         adoptag.directAdWrite(k,adopPosition,adopWidth,adopHeight);
@@ -112,12 +115,15 @@ adoptag.display = function (k) {
                     if(adopPosition.toLowerCase() == 'popup' || adopPosition.toLowerCase() == 'full'){//popup,full 영역의 경우
                         adoptag.fullPopUpAdWrite(k,adopPosition,adopWidth,adopHeight,adAfterTime);
                     }
+                    else if(adopPosition.toLowerCase() == "skin"){
+                        adoptag.skinAdWrite(k,adopPosition,adopWidth,adopHeight);
+                    }
                     else{//
                         adoptag.directAdWrite(k,adopPosition,adopWidth,adopHeight);
                     }
                 }
                 else{//직광고가 있으나 영역광고가 없는경우
-                    if(adopPosition.toLowerCase() == 'popup' || adopPosition.toLowerCase() == 'full'){//popup,full 영역의 경우 네트웍광고 보내지 않음.
+                    if(adopPosition.toLowerCase() == 'popup' || adopPosition.toLowerCase() == 'full' || adopPosition.toLowerCase() == 'skin'){//popup,full 영역의 경우 네트웍광고 보내지 않음.
                         return;
                     }
                     adoptag.netAdWrite(k,adopZonecd,adopWidth,adopHeight,adopPosition);
@@ -125,14 +131,14 @@ adoptag.display = function (k) {
             }
         }
         else{//아톰에서 직광고가 없는경우(직광고가 아닌 네트웍광고는 리프레시 적용 않함.)
-            if(adopPosition.toLowerCase() != "popup" && adopPosition.toLowerCase() != "full" ){
+            if(adopPosition.toLowerCase() != "popup" && adopPosition.toLowerCase() != "full" && adopPosition.toLowerCase() != "skin"){
                 adoptag.netAdWrite(k,adopZonecd,adopWidth,adopHeight,adopPosition);
             }
         }
 
     }
     else{//아톰에서 응답을 받지 못한 경우(네트웍광고 리프래쉬 적용 않함.)
-        if(adopPosition.toLowerCase() != "popup" && adopPosition.toLowerCase() != "full" ){
+        if(adopPosition.toLowerCase() != "popup" && adopPosition.toLowerCase() != "full" && adopPosition.toLowerCase() != "skin"){
             adoptag.netAdWrite(k,adopZonecd,adopWidth,adopHeight,adopPosition);
         }
     }
@@ -153,6 +159,60 @@ adoptag.openPopUp = function(i){
         div.style.display = "block";
     }
 };
+//skin AD 처리
+adoptag.skinAdWrite = function(i,p,w,h){
+    //body 스타일 변경
+    var bodyTag = document.getElementsByTagName("body");
+    var div = document.getElementById(i);
+
+    if(!bodyTag[0] || !div){//body 태그가 없거나 ins tag가 없을경우 종료
+        return;
+    }
+    // body 클래스에 'skinbanner_type' 추가
+    bodyTag[0].setAttribute("class","skinbanner_type");
+    //bodyTag[0].setAttribute("style","background:#f0f0f0;padding-top:200px;")
+
+    //배경화면 세팅 작업
+    var strIframeId    = "adopB" + Math.floor(Math.random()*10000) + 1;
+    var ifr = document.createElement("iframe");
+    var strIfrConts = "";
+
+    //iframe 설정
+    ifr.setAttribute("id",strIframeId);
+    ifr.setAttribute("frameborder","0");
+    ifr.setAttribute("marginwidth","0");
+    ifr.setAttribute("marginheight","0");
+    ifr.setAttribute("paddingwidth","0");
+    ifr.setAttribute("paddingheight","0");
+    ifr.setAttribute("scrolling","no");
+    ifr.setAttribute("style","width:100%;height:"+h+"px;");
+
+    div.appendChild(ifr);
+    var ifrDoc = ifr.contentDocument || ifr.contentWindow.document;
+
+    //직광고 소재 찾아 오기
+    adoptag.adinfo.adinfos.forEach(function (v,i) {
+        if(v.location == p){
+            strIfrConts = atob(v.htmlcd);//base64 decoding 처리;
+        }
+    });
+
+    if(ifrDoc != null){
+        ifrDoc.open();
+        ifrDoc.write(strIfrConts);
+        ifrDoc.close();
+    }
+
+    if(typeof adoptag.paraminfo.device == "string" && adoptag.paraminfo.device.toLowerCase() == "mobile") {
+        //모바일일경우 리턴
+        return;
+    }
+    else{
+        var divStyle = "position:fixed;display:block;min-width:1200px;height:975px;top:0;left:0;right:0;z-index:1;padding:0;overflow:hidden;";
+        div.setAttribute("style",divStyle);
+    }
+
+}
 //full,popup banner 노출
 adoptag.fullPopUpAdWrite = function(i,p,w,h,t){
     var div = document.getElementById(i);
@@ -206,6 +266,7 @@ adoptag.fullPopUpAdWrite = function(i,p,w,h,t){
                 div.style.width   = "100%";
                 div.style.height  = "auto";
                 ifr.style.width   = "100%";
+
                 //ifr.style.height  = "auto";
                 ifr.onload = function () {
                     ifr.style.height = ifr.contentWindow.document.body.scrollHeight + 'px';
@@ -231,7 +292,8 @@ adoptag.fullPopUpAdWrite = function(i,p,w,h,t){
         }
         else{
             if(p == "full"){
-                div.setAttribute("style","width:100%;px;text-align:center;");
+                div.setAttribute("style","width:100%;text-align:center;");
+                div.style.margin  = "20px 0";
                 setTimeout(function () {
                     adoptag.closePopUp(i);
                 },t);
@@ -271,8 +333,8 @@ adoptag.directAdWrite = function(i,p,w,h){
         ifr.setAttribute("style","width:"+w+"px;height:"+h+"px;");
         div.style.width = "100%";
         div.style.textAlign = "center";
-        //ifr.setAttribute("style","width:"+w+"px;height:auto;");
-
+        div.style.display = "block";
+        div.style.maxHeight ="none";
         div.appendChild(ifr);
         var ifrDoc = ifr.contentDocument || ifr.contentWindow.document;
 
@@ -306,6 +368,7 @@ adoptag.directAdWrite = function(i,p,w,h){
                 div.style.textAlign = "center";
                 div.style.position = "fixed";
                 div.style.bottom   = "0";
+                div.style.height = h + "px";
 
             }
             else if(p == 'inread'){
@@ -320,8 +383,16 @@ adoptag.directAdWrite = function(i,p,w,h){
 
             }
         }
-        else{//모자일이 아닐경우 처리
-            div.style.display = "inline-block";
+        else{//모바일이 아닐경우 처리
+            if(p == 'top') { //탑일경우 처리
+                div.style.padding = "20px 0";
+            }
+            else if(p == 'footer'){//푸터일경우 처리
+                div.style.margin = "0 0 20px";
+            }
+            else if(p == 'inread'){//인리드일경우 처리
+                div.style.margin = "20px 0";
+            }
         }
 
 
@@ -347,17 +418,37 @@ adoptag.netAdWrite = function(i,z,w,h,p){
 
         div.appendChild(ins);
         div.appendChild(scr);
-        div.style.display = "inline-block";
+        //div.style.display = "inline-block";
+        div.style.display = "block";
+        div.style.maxHeight ="none";
         if(typeof adoptag.paraminfo.device == "string" && adoptag.paraminfo.device.toLowerCase() == "mobile") {//모바일일 경우 중앙정렬
-            div.style.width = "100%";
-            div.style.textAlign = "center";
-            if(p == "footer"){
+            if(p == "inread"){
+                ins.style.width = "300px";
+                ins.style.height = "250px";
+            }
+            else if(p == "footer"){
                 div.style.position = "fixed";
                 div.style.bottom = "0";
+                div.style.height = h + "px";
+            }
+        }
+        else{ //PC 일경우
+            if(p == "top"){
+                div.style.padding = "20px 0";
+            }
+            else if(p == "inread"){
+                div.style.margin = "20px 0";
+            }
+            else if(p == "footer"){
+                div.style.margin = "0 0 20px";
             }
         }
     }
 };
+//카테고리 변경 함수
+adoptag.changeCate = function(c){
+    adoptag.paraminfo.cate = c;
+}
 //호출 변수 세팅
 adoptag.defineAdinfo = function(o){
     //console.log(typeof o);
@@ -422,7 +513,7 @@ adoptag.loadadandset = function(u){
                 if(typeof adoptag.adinfo.refreshtime != "undefined" && adoptag.adinfo.refreshtime > 0){//리프레시 타임 세팅
                     setTimeout(function () {
                         //adoptag.sync();
-                       //console.log(adoptag.adinfo.refreshtime);
+                        //console.log(adoptag.adinfo.refreshtime);
                     },(adoptag.adinfo.refreshtime-3)*1000);
                 }
             }

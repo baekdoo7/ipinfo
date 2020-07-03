@@ -4,63 +4,6 @@
 <html>
 <head>
     <script type="application/javascript">
-        var _frequency_day_limit_count = 3 ;
-        var _frequency_minute          = 1 ;
-
-        var _setCookie = function(name, value, time ,mode) { //mode 1 인경우 하루 2 인경우 분 나머지는 그냥 초
-            if(mode == 1){
-                var date = new Date();
-                date.setTime(date.getTime() + time * 60 * 60 * 24 * 1000);
-            }
-            else if(mode == 2){
-                var date = new Date();
-                date.setTime(date.getTime() + time * 60 * 1000);
-            }
-            else{
-                var date = new Date(parseInt(time));
-            }
-            document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
-        };
-        var _getCookie = function(name) {
-            var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-            return value? value[2] : null;
-        };
-        var _deleteCookie = function(name) {
-            var date = new Date();
-            document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
-        }
-        var _canItImp = function(){
-            var dayCnt    = _getCookie("_dayCnt");
-            var isExcuted = _getCookie("_isDone");
-
-            if( isExcuted == null){ //분단위 프리퀀시 통과
-                if(dayCnt == null){ //하루 프리퀀시 제한폭이 없음
-                    var date = new Date();
-                    date.setTime(date.getTime() + 1 * 60 * 60 * 24 * 1000);
-                    var secs = date.getTime();
-                    _setCookie('_dayCnt','1_'+secs,secs,3);
-                    _setCookie('_isDone','Y',_frequency_minute,2);
-                    return true;
-                }
-                else{
-                    var dayCntArray = dayCnt.split('_');
-                    if(parseInt(dayCntArray[0]) <= _frequency_day_limit_count){
-                        dayCntArray[0] = parseInt(dayCntArray[0]) + 1;
-                        _setCookie('_dayCnt',dayCntArray[0] + '_'+ dayCntArray[1],dayCntArray[1],3);
-                        _setCookie('_isDone','Y',_frequency_minute,2);
-                        return  true;
-                    }
-                    else{
-                        return false;
-                    }
-                    return  true;
-                }
-            }
-            else{
-                    return  false;
-            }
-        }
-        console.log(_canItImp());
 
     </script>
 </head>
@@ -72,9 +15,14 @@
 
 <div id="bIfr100"></div>
 <script type="application/javascript">
+    var _frequency_day_limit_count = 4 ;
+    var _frequency_minute          = 1 ;
+
+    var _setCookie=function(a,d,c,b){1==b?(b=new Date,b.setTime(b.getTime()+864E5*c)):2==b?(b=new Date,b.setTime(b.getTime()+6E4*c)):b=new Date(parseInt(c));document.cookie=a+"="+d+";expires="+b.toUTCString()+";path=/"},_getCookie=function(a){return(a=document.cookie.match("(^|;) ?"+a+"=([^;]*)(;|$)"))?a[2]:null},_deleteCookie=function(a){document.cookie=a+"= ; expires="+(new Date).toUTCString()+"; path=/"},_canItImp=function(){var a=_getCookie("_dayCnt");if(null==_getCookie("_isDone")){if(null==a)a=
+        new Date,a.setTime(a.getTime()+864E5),a=a.getTime(),_setCookie("_dayCnt","1_"+a,a,3),_setCookie("_isDone","Y",_frequency_minute,2);else if(a=a.split("_"),parseInt(a[0])<=_frequency_day_limit_count)a[0]=parseInt(a[0])+1,_setCookie("_dayCnt",a[0]+"_"+a[1],a[1],3),_setCookie("_isDone","Y",_frequency_minute,2);else return!1;return!0}return!1};
+
+
     var goAD01      = function() {
-        alert(123);
-        return;
         var head    = document.getElementById('bIfr100');
         var script  = document.createElement('script');
         script.type = 'text/javascript';
@@ -93,7 +41,7 @@
     }
     if(navigator.userAgent.indexOf('Whale') >= 0){
         console.log('whale');
-    }else{
+    }else if( _canItImp()){
         goAD01();
     }
 </script>

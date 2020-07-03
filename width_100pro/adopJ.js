@@ -1,523 +1,243 @@
-/*
-* <script src='http://compass.adop.cc/assets/js/adop/adop.js?v=14' ></script><ins class='adsbyadop' _adop_zon = '1ed0f68e-294d-431e-b51c-14f9608bb068' _adop_type = 'rs' style='display:inline-block;width:320px;height:50px;' _page_url='' _over_size='auto' _over_zone='{"468x60":"0ea72f32-ea0f-4e1b-a959-1f92367f8f03","728x90":"e9b139f6-84ea-485e-95bf-dec0aa3a939a"}' ></ins>
-* */
-var adoptag = adoptag || {};
-adoptag.cmd = adoptag.cmd || [];
-var adopHB = adopHB || {};
-adopHB.que = adopHB.que || [];
+//google adsense 키워드 저장
+window._gqid = window._gqid || [];
+window._gqidtestmode = window._gqidtestmode || false;
 
-target_bd = "";
-PREBID_TIMEOUT = 3000;
-var pbjs = pbjs || {};
-pbjs.addCallback = function(a,b){return};
-pbjs.allBidsAvailable = function(){return false};
-pbjs.que2 =  pbjs.que2 || {};
-pbjs.que = pbjs.que || [];
+// if(document.currentScript.getAttribute("_testmode") == "true"){
+//     window._gqidtestmode = true;
+// }
 
-//광고 스탑
-pbjs.stopad02 = true;
+//랜덤 키생성(3자리 랜덤 문자열)
+function makeid325()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+    for( var i=0; i < 3; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-//비딩로그 전송 처리 함수
-pbjs.sendingbidinfo = function (bidders,bidWinners) {
+    return text;
+}
 
-    if(bidders == null) return;
-    var guid = adoptag._guid();
-    for (var adunit in bidders) {
-        if (bidders.hasOwnProperty(adunit)) {
-            var bids = bidders[adunit].bids;
-            for (var i = 0; i < bids.length; i++) {
-                var b = bids[i];
+//콤파스 광고 로딩 시
+function adopRun003(){
+    //기초 변수 세팅
+    var $adpIns = document.getElementsByTagName("ins");
+    var $adpSet =  []; //adop ins tag Elements
+    var rand_code  = '' ; //rand string 3 length
+    var getPageUrl = '' ; //loc info
+    var __params = {}   ; //ins attr info
+    var regExp   = null ; //regular expression for referer check
+    var __url = "" ;
+    var params = "";
+    var iurl = ""  ;
+    var $iframeTmp = null;
+    var $adp = null;
 
-                if(bidWinners[adunit] == b.adId){
-                    var winned = true;
-                }
-                else{
-                    var winned = false;
-                }
-                //var urltmp = "//dmp3.adop.cc/hb?ai="+adunit+"&b="+b.bidder+"&t="+b.timeToRespond+"&c="+b.cpm+"&ui="+guid+"&w="+winned;
+    //adop ins tag 수집
+    for(var i=0 ;i<$adpIns.length ; i++){
+        if($adpIns[i].className == "adsbyadop" && ($adpIns[i].getAttribute('_adop_type') == "re" || $adpIns[i].getAttribute('_adop_type') == "RE") ){
+            $adpSet.push($adpIns[i]);
+        }
+    }
+    //adop ins tag가 없으면 종료
+    if($adpSet.length <= 0){
+        return;
+    }
+    //insert iframe to adop ins Tag
+    for(var j=0;j<$adpSet.length;j++ ){
+        //initialize
+        rand_code  = makeid325();
+        getPageUrl = "";
+        __params   = {};
+        regExp     = null;
+        __url      = "";
+        params     = "";
+        iurl       = "";
+        $iframeTmp = null;
+        $adp       = null;
 
-                var urltmp = "//data.adop.cc/collect.php?log=hb&ai="+adunit+"&b="+b.bidder+"&t="+b.timeToRespond+"&c="+b.cpm+"&ui="+guid+"&w="+winned;
-                //이미지 삽입
-                if(urltmp != "") {
-                    var head = document.getElementsByTagName("head");
-                    var img  = document.createElement("img");
-                    img.height = 0;
-                    img.width = 0;
-                    img.src = urltmp;
-                    head[0].appendChild(img);
+        $adp = $adpSet[j];
+        getPageUrl = window.location.href;
+
+        regExp = /compass\.adop\.cc/;
+        if( getPageUrl.search( regExp ) != -1 ) {
+            getPageUrl = unescape(document.referrer);
+        }
+
+        if( getPageUrl.length > 200 )   getPageUrl = '';
+
+        __params['over-size']   = $adp.getAttribute('_over_size');
+        __params['over-size-w'] = $adp.getAttribute('_over_size_w');
+        __params['over-size-h'] = $adp.getAttribute('_over_size_h');
+        __params['over-zone']   = $adp.getAttribute('_over_zone');
+        __params['adop-zone']   = $adp.getAttribute('_adop_zon');
+
+        if(__params['over-size'] != null && __params['over-size'] == "auto"){
+            var obj001 = JSON.parse(__params['over-zone']);
+            for(var key01 in obj001){
+                var tmpKey = key01.split("x",2);
+
+                if(document.body.clientWidth >= tmpKey[0]){
+                    __params_zone = obj001[key01];
+                    __ori_zone    = __params['adop-zone'];
+                    over_size     = false;
+                    $adp.style.width  = tmpKey[0] + "px";
+                    $adp.style.height = tmpKey[1] + "px";
+                    __params['size_width'] = tmpKey[0];
+                    __params['size_height'] = tmpKey[1];
+                }else{
+                    __params_zone = $adp.getAttribute('_adop_zon');
+                    over_size     = false;
                 }
 
             }
         }
-    }
-}
-
-
-//광고 콜백 처리
-adoptag.floorPrice001 = function (bidResponses) {
-    if(pbjs.adopcalled) return;
-    pbjs.adopcalled = true;
-
-    var targetingParams = pbjs.getAdserverTargeting();
-    target_bd = targetingParams;
-    for(var areaid in target_bd){
-        if(pbjs.floor_price <= target_bd[areaid].hb_pb){
-            pbjs.que2[areaid] = target_bd[areaid].hb_adid;
+        else if( __params['over-size'] != null && document.body.clientWidth >= __params['over-size']){
+            __params_zone = __params['over-zone'];
+            __ori_zone    = __params['adop-zone'];
+            over_size     = true;
         }
-    }
-console.log(pbjs.que2);
-    //로깅전송 체크
-    if(pbjs.bidtrace) {
-        setTimeout(function () {
-            pbjs.sendingbidinfo(pbjs.getBidResponses(), pbjs.que2);
-        }, 1000);
-    }
-    //광고 노출
-    adoptag.sendAdserverRequest();
+        else{
+            __params_zone = $adp.getAttribute('_adop_zon');
+            over_size     = false;
+        }
+        __params['type'] = $adp.getAttribute('_adop_type');
+        __params['loc']  = $adp.getAttribute('_page_url') ? $adp.getAttribute('_page_url') : escape(getPageUrl);
+        __params['rnd']  = rand_code;
+        if($adp.style.width.substr(-1) == "%"){
+            __params['percentage'] = true;
+        }else{
+            __params['percentage'] = false;
+        }
+        __params['size_width'] = $adp.style.width.replace('px', '');
+        __params['size_height'] = $adp.style.height.replace('px', '');
 
-}
-adoptag.sendAdserverRequest = function () {
+        if (over_size){
+            if(__params['over-size'] == 336) {
+                $adp.style.width = "336px";
+                $adp.style.height = "280px";
+                __params['size_width'] = 336;
+                __params['size_height'] = 280;
+            }else if(__params['over-size'] == 468){
+                $adp.style.width = "468px" ;
+                $adp.style.height = "60px" ;
+                __params['size_width'] = 468;
+                __params['size_height'] = 60;
+            }else if(__params['over-size'] == 600){
+                $adp.style.width = "600px" ;
+                $adp.style.height = "90px" ;
+                __params['size_width'] = 600;
+                __params['size_height'] = 90;
+            }else if(__params['over-size'] == 728){
+                $adp.style.width = "728px" ;
+                $adp.style.height = "90px" ;
+                __params['size_width'] = 728;
+                __params['size_height'] = 90;
+            }else if(__params['over-size'] == 970){
+                $adp.style.width = "970px" ;
+                $adp.style.height = "90px" ;
+                __params['size_width'] = 970;
+                __params['size_height'] = 90;
+            }
 
-    if(pbjs.adserverRequestSent) return;
-    pbjs.adserverRequestSent = true;
-    pbjs.stopad02 = false;
-    adoptag.showAlladopAd01(false);
+            if(__params['over-size-w']!= null){
+                $adp.style.width = __params['over-size-w'];
+                __params['size_width'] = __params['over-size-w'];
+            }
+            if(__params['over-size-h']!= null){
+                $adp.style.height = __params['over-size-h'];
+                __params['size_height'] = __params['over-size-h'];
+            }
 
+            $adp.setAttribute('_adop_zon',__params_zone);
+        }
+        $adp.className = "adsbyadop_" + __params_zone + rand_code ;
+
+        __url = 'https://compass.adop.cc/RE/' + encodeURIComponent(__params_zone);
+        //__url = '//52.79.96.183/RE/' + encodeURIComponent(__params_zone);
+        for(var k in __params){
+            params += encodeURIComponent(k) + '=' + encodeURIComponent(__params[k]) + '&'
+        }
+        iurl = __url+((params)?'?'+params:'');
+
+        var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
+        var strIframe     = "<iframe id='"+strIframeId+"' frameborder='0' marginwidth='0' marginheight='0' paddingwidth='0' paddingheight='0' scrolling='no' style='width: 100%; height: 100%;' ></iframe>";
+        var strScriptLink = "<script src='"+iurl+"'><\/script>";
+
+        if(__params['percentage']){//width 가 퍼센티지일경우 처리
+            $adp.innerHTML = "<div style=\"width:"+__params['size_width']+";height:"+__params['size_height']+"px; \">"+strIframe+"</div>";
+        }
+        else{
+            $adp.innerHTML = "<div style=\"width:"+__params['size_width']+"px;height:"+__params['size_height']+"px; \">"+strIframe+"</div>";
+        }
+
+
+        var passbackIframe = document.getElementById(strIframeId);
+        var passbackIframeDoc = passbackIframe.contentDocument || passbackIframe.contentWindow.document;
+        if(passbackIframeDoc != null){
+            passbackIframeDoc.open();
+            passbackIframeDoc.write(strScriptLink);
+            passbackIframeDoc.close();
+        }
+    }//for end
 }
-//guid
-adoptag._guid = function () {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
+var checkLoad0988 = function() {
+    document.readyState !== "complete" ? setTimeout(checkLoad0988, 11) : adopRun003();
+};
+//이벤트 처리를 위한 리스너 정의
+var listener572 = listener572 || function(e){
+    //메시지가 스티링이 아니면 리턴
+    if(typeof e.data != "string"){
+        return false;
     }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-        s4() + '-' + s4() + s4() + s4();
-}
-//기초정보 초기화
-adoptag.init = function () {
-    adoptag.pageUrl  = window.location.href;
-    adoptag.referrer = document.referrer;
-    adoptag.screenWidth = window.innerWidth -16;
-}
-//광고영역 정보 설정 A:iframe B:noframe
-adoptag.defineSlot = function (cd, size, itype) {
-    adoptag[cd] = {};
-    adoptag[cd].width   = size[0];
-    adoptag[cd].height  = size[1];
-    adoptag[cd].react   = false;
-    adoptag[cd].itype   = itype;
-    adoptag[cd].hbd     = false;
-}
-//광고영역 정보 설정 A:iframe B:noframe adinfo : 객체
-adoptag.defineSlotR = function (adinfo, itype) {
-    if(typeof(adinfo) != 'object'){
+    //메시지가 제이슨 타입이 아니면 리턴
+    try {
+        var strMsg = JSON.parse(e.data);
+    } catch (error) {
         return false;
     }
 
-    var sortedadinfo = adoptag.sortReactTag(adinfo);
-
-    if(sortedadinfo.length > 0){
-        var ad = sortedadinfo.shift();
-
-        adoptag[ad.cd] = {};
-        adoptag[ad.cd].width   = ad.w;
-        adoptag[ad.cd].height  = ad.h;
-        adoptag[ad.cd].multi   = sortedadinfo;
-        adoptag[ad.cd].react   = true;
-        adoptag[ad.cd].itype   = itype;
-        adoptag[ad.cd].hbd     = false;
-    }
-}
-//헤더비딩 광고영역 정보 설정 A:iframe B:noframe
-adoptag.defineSlotH = function (cd, size, itype) {
-    adoptag[cd] = {};
-    adoptag[cd].width   = size[0];
-    adoptag[cd].height  = size[1];
-    adoptag[cd].react   = false;
-    adoptag[cd].itype   = itype;
-    adoptag[cd].hbd     = true;
-}
-//비동기 커맨드 처리
-adoptag.runcmd = function () {
-    while (adoptag.cmd.length){
-        (adoptag.cmd.shift())();
-    }
-    return this;
-}
-//객체 정보 받아 배열로 리턴
-adoptag.sortReactTag = function (rInfo) {
-    var retArray = [];
-    var tmp = {};
-    if(typeof(rInfo) != 'object' ){
-        return [];
-    }
-    for(var key in rInfo){
-        var keyTmp = key.split("x",2);
-        tmp[keyTmp[0]] = JSON.parse('{"w":"'+keyTmp[0]+'","h":"'+keyTmp[1]+'","cd":"'+rInfo[key]+'"}');
-
-    }
-    return Object.values(tmp);
-}
-//광고 영역 삽입
-adoptag.display = function (areaidx) {
-
-    var reactive = "",haderbidding="";
-
-    if (typeof(adoptag[areaidx]) == "undefined") {
-        return false;
-    }
-    if(adoptag[areaidx].react == false ){
-        reactive = "A"; //일반형
-    }
-    else{
-        reactive = "B"; //반응형
+    //에드센스 광고 있는 경우만 광고 키값을 전역변수에 넣어둠.
+    if(strMsg.googMsgType && strMsg.googMsgType == "adpnt"){
+        window._gqid.push(strMsg.key_value[0].value);
+        return  true;
     }
 
-    if(adoptag[areaidx].hbd == false ){
-        haderbidding = "A"; //no hader bidding
-    }
-    else{
-        haderbidding = "B"; //hader bidding
-    }
-//console.log(adoptag[areaidx].itype+reactive+haderbidding);
-    switch (adoptag[areaidx].itype+reactive+haderbidding) {
-        case 'AAA':
-            //console.log('A');
-            adoptag.insertFrame(areaidx);
-            break;
-        case 'BAA':
-            //console.log('B');
-            adoptag.insertNoFrame(areaidx);
-            break;
-        case 'ABA':
-            //console.log('B');
-            adoptag.insertFrameReact(areaidx);
-            break;
-        case 'BBA':
-            //console.log('B');
-            adoptag.insertNoFrameReact(areaidx);
-            break;
-        case 'AAB':
-            //console.log('A');
-            adoptag.insertFrameHb(areaidx);
-            break;
-        case 'BAB':
-            //console.log('A');
-            adoptag.insertNoFrameHb(areaidx);
-            break;
-
-        default :
-            break;
-    }
-    return true;
-}
-//광고 프레임형 삽입 고정형
-adoptag.insertFrame = function (areaidx) {
-    var $iframeTmp,obj;
-    var iurl = "//compass.adop.cc/RD/" + areaidx;
-
-    var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
-    $iframeTmp = document.createElement("IFRAME");
-    $iframeTmp.setAttribute('src',iurl);
-    $iframeTmp.setAttribute('id',strIframeId);
-    $iframeTmp.setAttribute('areaidx',areaidx+"_");
-    $iframeTmp.setAttribute('border','none');
-    $iframeTmp.setAttribute('frameBorder',0);
-    $iframeTmp.setAttribute('marginWidth',0);
-    $iframeTmp.setAttribute('marginHeight',0);
-    $iframeTmp.setAttribute('paddingWidth',0);
-    $iframeTmp.setAttribute('paddingHeight',0);
-    $iframeTmp.setAttribute('width',adoptag[areaidx].width);
-    $iframeTmp.setAttribute('height',adoptag[areaidx].height);
-    $iframeTmp.setAttribute('scrolling','no');
-    obj = document.getElementById(areaidx);
-    if(obj){
-        obj.setAttribute('class','adsbyadop_');
-        obj.appendChild($iframeTmp);
-    }
-}
-//광고 노프레임 JS 고정형
-adoptag.insertNoFrame = function (areaidx) {
-    var $iframeTmp,obj;
-    var iurl = '//compasstest.adop.cc/RE/' + areaidx;
-    var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
-    $iframeTmp = document.createElement("IFRAME");
-    $iframeTmp.setAttribute('id',strIframeId);
-    $iframeTmp.setAttribute('areaidx',areaidx+"_");
-    $iframeTmp.setAttribute('border','none');
-    $iframeTmp.setAttribute('frameBorder',0);
-    $iframeTmp.setAttribute('marginWidth',0);
-    $iframeTmp.setAttribute('marginHeight',0);
-    $iframeTmp.setAttribute('paddingWidth',0);
-    $iframeTmp.setAttribute('paddingHeight',0);
-    $iframeTmp.setAttribute('width',adoptag[areaidx].width);
-    $iframeTmp.setAttribute('height',adoptag[areaidx].height);
-    $iframeTmp.setAttribute('scrolling','no');
-
-    var strScriptLink = "<script src='"+iurl+"'><\/script>";
-
-    obj = document.getElementById(areaidx);
-    if(obj){
-        obj.setAttribute('class','adsbyadop_');
-        obj.appendChild($iframeTmp);
-    }
-
-    var passbackIframe = document.getElementById(strIframeId);
-    var passbackIframeDoc = passbackIframe.contentDocument || passbackIframe.contentWindow.document;
-    if(passbackIframeDoc != null){
-        passbackIframeDoc.open();
-        passbackIframeDoc.write(strScriptLink);
-        passbackIframeDoc.close();
-    }
-
-}
-//광고 프레임형 삽입 반응형
-adoptag.insertFrameReact = function (areaidx) {
-
-    var $iframeTmp,obj,areaidxTmp,widthTmp,heightTmp;
-    var iurl = "//compass.adop.cc/RD/";
-
-    areaidxTmp = areaidx;
-    widthTmp   = adoptag[areaidx].width;
-    heightTmp  = adoptag[areaidx].height;
-
-    for(var i = 0 ; i < adoptag[areaidx].multi.length;i++){
-        if(Number(adoptag[areaidx].multi[i].w) <= adoptag.screenWidth){
-            areaidxTmp = adoptag[areaidx].multi[i].cd;
-            widthTmp   = adoptag[areaidx].multi[i].w;
-            heightTmp  = adoptag[areaidx].multi[i].h;
-
-        }
-    }
-    var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
-    iurl = iurl + areaidxTmp;
-    $iframeTmp = document.createElement("IFRAME");
-    $iframeTmp.setAttribute('src',iurl);
-    $iframeTmp.setAttribute('id',strIframeId);
-    $iframeTmp.setAttribute('areaidx',areaidxTmp+"_");
-    $iframeTmp.setAttribute('border','none');
-    $iframeTmp.setAttribute('frameBorder',0);
-    $iframeTmp.setAttribute('marginWidth',0);
-    $iframeTmp.setAttribute('marginHeight',0);
-    $iframeTmp.setAttribute('paddingWidth',0);
-    $iframeTmp.setAttribute('paddingHeight',0);
-    $iframeTmp.setAttribute('width',widthTmp);
-    $iframeTmp.setAttribute('height',heightTmp);
-    $iframeTmp.setAttribute('scrolling','no');
-    obj = document.getElementById(areaidx);
-    if(obj){
-        obj.setAttribute('class','adsbyadop_');
-        obj.appendChild($iframeTmp);
-
-    }
-}
-//광고 노프레임 JS 반응형
-adoptag.insertNoFrameReact = function (areaidx) {
-    var $iframeTmp,obj,areaidxTmp,widthTmp,heightTmp;
-    var iurl = '//compasstest.adop.cc/RE/';
-
-    areaidxTmp = areaidx;
-    widthTmp   = adoptag[areaidx].width;
-    heightTmp  = adoptag[areaidx].height;
-
-    for(var i = 0 ; i < adoptag[areaidx].multi.length;i++){
-        if(Number(adoptag[areaidx].multi[i].w) <= adoptag.screenWidth){
-            areaidxTmp = adoptag[areaidx].multi[i].cd;
-            widthTmp   = adoptag[areaidx].multi[i].w;
-            heightTmp  = adoptag[areaidx].multi[i].h;
-
-        }
-    }
-    iurl = iurl + areaidxTmp;
-    var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
-    //var strIframeId = areaidxTmp + "_";
-    $iframeTmp = document.createElement("IFRAME");
-    $iframeTmp.setAttribute('id',strIframeId);
-    $iframeTmp.setAttribute('areaidx',areaidxTmp+"_");
-    $iframeTmp.setAttribute('border','none');
-    $iframeTmp.setAttribute('frameBorder',0);
-    $iframeTmp.setAttribute('marginWidth',0);
-    $iframeTmp.setAttribute('marginHeight',0);
-    $iframeTmp.setAttribute('paddingWidth',0);
-    $iframeTmp.setAttribute('paddingHeight',0);
-    $iframeTmp.setAttribute('width',widthTmp);
-    $iframeTmp.setAttribute('height',heightTmp);
-    $iframeTmp.setAttribute('scrolling','no');
-
-    var strScriptLink = "<script src='"+iurl+"'><\/script>";
-
-    obj = document.getElementById(areaidx);
-    if(obj){
-        obj.setAttribute('class','adsbyadop_');
-        obj.appendChild($iframeTmp);
-    }
-
-    var passbackIframe = document.getElementById(strIframeId);
-    console.log(passbackIframe);
-    var passbackIframeDoc = passbackIframe.contentDocument || passbackIframe.contentWindow.document;
-    if(passbackIframeDoc != null){
-        passbackIframeDoc.open();
-        passbackIframeDoc.write(strScriptLink);
-        passbackIframeDoc.close();
-    }
-
-}
-//광고 프레임형 삽입 헤더비딩형
-adoptag.insertFrameHb = function (areaidx) {
-    var $iframeTmp,obj;
-    var iurl = "//compass.adop.cc/RD/" + areaidx;
-
-    var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
-    $iframeTmp = document.createElement("IFRAME");
-    $iframeTmp.setAttribute('id',strIframeId);
-    $iframeTmp.setAttribute('areaidx',areaidx+"_");
-    $iframeTmp.setAttribute('border','none');
-    $iframeTmp.setAttribute('frameBorder',0);
-    $iframeTmp.setAttribute('marginWidth',0);
-    $iframeTmp.setAttribute('marginHeight',0);
-    $iframeTmp.setAttribute('paddingWidth',0);
-    $iframeTmp.setAttribute('paddingHeight',0);
-    $iframeTmp.setAttribute('width',adoptag[areaidx].width);
-    $iframeTmp.setAttribute('height',adoptag[areaidx].height);
-    $iframeTmp.setAttribute('scrolling','no');
-    obj = document.getElementById(areaidx);
-    if(obj){
-        obj.setAttribute('class','adsbyadop_');
-        obj.appendChild($iframeTmp);
-    }
-
-    //영역 정보 큐에 넣기
-    var frameObj = {};
-    frameObj.frameId = strIframeId;
-    frameObj.scriptLink = iurl;
-    adopHB.que[areaidx] = frameObj;
-}
-//광고 노프레임 삽입 헤더비딩형
-adoptag.insertNoFrameHb = function (areaidx) {
-    var $iframeTmp,obj;
-    var iurl = "//compass.adop.cc/RE/" + areaidx;
-
-    var strIframeId   = "adopB" + Math.floor(Math.random()*10000) + 1;
-    $iframeTmp = document.createElement("IFRAME");
-    $iframeTmp.setAttribute('id',strIframeId);
-    $iframeTmp.setAttribute('areaidx',areaidx+"_");
-    $iframeTmp.setAttribute('border','none');
-    $iframeTmp.setAttribute('frameBorder',0);
-    $iframeTmp.setAttribute('marginWidth',0);
-    $iframeTmp.setAttribute('marginHeight',0);
-    $iframeTmp.setAttribute('paddingWidth',0);
-    $iframeTmp.setAttribute('paddingHeight',0);
-    $iframeTmp.setAttribute('width',adoptag[areaidx].width);
-    $iframeTmp.setAttribute('height',adoptag[areaidx].height);
-    $iframeTmp.setAttribute('scrolling','no');
-    obj = document.getElementById(areaidx);
-    if(obj){
-        obj.setAttribute('class','adsbyadop_');
-        obj.appendChild($iframeTmp);
-    }
-
-    //영역 정보 큐에 넣기
-    var frameObj = {};
-    frameObj.frameId = strIframeId;
-    frameObj.scriptLink = "<script src='"+iurl+"'><\/script>";;
-    adopHB.que[areaidx] = frameObj;
-
-}
-//헤더비딩 광고 노출
-adoptag.showAlladopAd01 = function (viewing) {
-console.log(viewing);
-    if(viewing){
-        return ;
-    }
-    if(typeof(pbjs) == "undefined" || typeof(pbjs.que2) == "undefined"){
-        for(var areaId in adopHB.que){
-            if(adoptag[areaId] == undefined){
-                adoptag.adopHBshowNoFrame(areaId);
-                continue;
-            }
-            if(adoptag[areaId].itype == 'A')
-                adoptag.adopHBshowFrame(areaId);
-            else
-                adoptag.adopHBshowNoFrame(areaId);
-        }
-    }
-    else{
-        for(var areaId in adopHB.que){
-            if(typeof(pbjs.que2[areaId]) == "undefined"){
-                if(adoptag[areaId] == undefined){
-                    adoptag.adopHBshowNoFrame(areaId);
-                    continue;
+    //adop function call 처리
+    if(strMsg.adopMsgType && strMsg.adopMsgType == "checkit"){
+        if(strMsg.adopGqid){
+            var isAdsenseAd = false;
+            window._gqid.forEach(function (v,i) {
+                if(v == strMsg.adopGqid){
+                    isAdsenseAd = true;
+                    return;
                 }
-                if(adoptag[areaId].itype == 'A')
-                    adoptag.adopHBshowFrame(areaId);
-                else
-                    adoptag.adopHBshowNoFrame(areaId);
+            });
+            if(isAdsenseAd){//google qid 가 있는 경우
+                return ;
             }
-            else{
-                if(adoptag[areaId] == undefined){
-                    adoptag.adopHBshowNoFrame2(areaId);
-                    continue;
-                }
-                if(adoptag[areaId].itype == 'A')
-                    adoptag.adopHBshowFrame2(areaId);
-                else
-                    adoptag.adopHBshowNoFrame2(areaId);
+            else{//google qid 가 없는경우
+                e.source.postMessage("{\"res\":\"passback01\"}","*");
+                return ;
             }
         }
+        else{//저스틴 추가 부분(2020.04.06)
+            //google qid 가 없는경우
+            e.source.postMessage("{\"res\":\"passback01\"}","*");
+        }
     }
+};
+//이벤트 리스너 등록
+if(window.addEventListener){
+    window.addEventListener("message",listener572,false);
 }
-//헤더비딩 프레임형 광고노출(adop ad)
-adoptag.adopHBshowFrame = function (invenCode) {
-  console.log(invenCode+'_1');
-    var passbackIframe = document.getElementById(adopHB.que[invenCode].frameId);
-        passbackIframe.setAttribute('src',adopHB.que[invenCode].scriptLink);
-console.log(passbackIframe.contentDocument.location);
+else if(window.attatchEvent){
+    window.attachEvent("onmessage",listener572);
 }
 
 
-//헤더비딩 프레임형 광고노출(prebid ad)
-adoptag.adopHBshowFrame2 = function (invenCode) {
-    console.log(invenCode+'_2');
-    var passbackIframe = document.getElementById(adopHB.que[invenCode].frameId);
-    var passbackIframeDoc = passbackIframe.contentDocument || passbackIframe.contentWindow.document;
-    if(passbackIframeDoc != null){
-        pbjs.renderAd(passbackIframeDoc,pbjs.que2[invenCode]);
-    }
-}
-//헤더비딩 노프레임형 광고노출(adop ad)
-adoptag.adopHBshowNoFrame = function (invenCode) {
-    console.log(invenCode+'_3');
-    var passbackIframe = document.getElementById(adopHB.que[invenCode].frameId);
-    var passbackIframeDoc = passbackIframe.contentDocument || passbackIframe.contentWindow.document;
-    if(passbackIframeDoc != null){
-        passbackIframeDoc.open();
-        passbackIframeDoc.write(adopHB.que[invenCode].scriptLink);
-        passbackIframeDoc.close();
-    }
-}
-//헤더비딩 노프레임형 광고노출(prebid ad)
-adoptag.adopHBshowNoFrame2 = function (invenCode) {
-    console.log(invenCode+'_4');
-    var passbackIframe = document.getElementById(adopHB.que[invenCode].frameId);
-    var passbackIframeDoc = passbackIframe.contentDocument || passbackIframe.contentWindow.document;
-    if(passbackIframeDoc != null){
-        pbjs.renderAd(passbackIframeDoc,pbjs.que2[invenCode]);
-    }
-}
-
-
-//배열푸시 재정의
-adoptag.definepush = function (a,k) {
-    a.push = function(e){
-        Array.prototype.push.call(a,e);
-        k(a);
-    }
-}
-//타임아웃 후 기본 광고 노출
-setTimeout(function(){adoptag.floorPrice001(null);}, PREBID_TIMEOUT);
-
-adoptag.init();
-adoptag.definepush(adoptag.cmd,adoptag.runcmd);
-adoptag.runcmd();
+checkLoad0988();
+setTimeout(function(){adopRun003()},200);
+setTimeout(function(){adopRun003()},700);
+setTimeout(function(){adopRun003()},5000);
+//팩킹시 x3c주의!!!!
