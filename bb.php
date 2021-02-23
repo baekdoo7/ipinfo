@@ -2,7 +2,7 @@
 
 
 ?>
-다시 문어다. b2 일거 같음
+다시 문어다.
 
 <script>
     login1 = function (){
