@@ -2,7 +2,7 @@
 
 
 ?>
-다시 문어다.
+b3 만들고 테스트
 
 <script>
     login1 = function (){
