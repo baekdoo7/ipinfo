@@ -2,8 +2,7 @@
 
 
 ?>
-
-테스트123(t-test) 문어 다
+다시 문어다.
 
 <script>
     login1 = function (){
