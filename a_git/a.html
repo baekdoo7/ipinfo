@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <script src="./moment.js"></script>
+    <script src="./moment-timezone-with-data.js"></script>
+</head>
+<body>
+<div>
+    <span id="tz-test"></span>
+</div>
+<script type="text/javascript">
+    (function(){
+
+        // var nowDate = moment().tz("Asia/Seoul").format();
+        // console.log(nowDate);
+
+        // nowDate = new Date(nowDate);
+        // console.log(nowDate);
+
+        // document.getElementById('tz-test').innerHTML  = nowDate;
+
+        var a = moment.tz("2019-11-12 15:00" , "Asia/Seoul");
+        var b = moment.tz("2019-11-12 15:00" , "America/Toronto");
+
+        a.format();
+        b.format();
+        console.log(a.format());
+        console.log(b.format());
+
+        a.utc().format();
+        b.utc().format();
+        console.log(a.utc().format());
+        console.log(b.utc().format());
+
+        //생성 된 모멘트는 다른 시간대에서 생성 되었기 때문에 UTC 시간이 다릅니다.
+
+        console.log("======================================")
+
+        var c = moment("2019-11-12 15:00").tz("Asia/Seoul");
+        var d = moment("2019-11-12 15:00").tz("America/Toronto");
+        c.format();
+        d.format();
+        console.log(c.format());
+        console.log(d.format());
+
+        c.utc().format();
+        d.utc().format();
+        console.log(c.utc().format());
+        console.log(d.utc().format());
+
+        //이 예에서는 먼저 기본 시간대에서 moment ( "2013-11-18 11:55") 객체를 만든 다음 시간대를 지정된 것으로 변경합니다.
+
+    })({});
+
+</script>
+</body>
+</html>
