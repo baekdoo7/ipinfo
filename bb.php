@@ -5,22 +5,13 @@
 다시 문어다.
 
 <script>
-    login1 = function (){
-        console.log('test');
-         var test = "문어";
-    };
-    login = function(){
-        console.log(login1.test);
-        return {
-            bbb:function (){
-                console.log('test1234');
-            },
-            ccc:function(msg){
-                console.log(msg);
-            },
-            ddd:"오징어"
-        }
-    }();
+for(i=0;i<10;i++){
+    let ttt = i*2;
+
+    console.log(ttt);
+    let ttt = i*3;
+}
+console.log(ttt);
 </script>
 
 <button onclick="login1('오징어')">눌러</button>
