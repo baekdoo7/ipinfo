@@ -27,8 +27,8 @@ $naraParmnumOfRows = 900; //한페이지 결과수
 $naraParmpageNo = 1 ;    //페이지 번호
 $naraParmServiceKey = "vsy2YH1i2ENTZv2OFaZQGCIHDNzPcv2axYPJ1GcIuKbic5WjGfzwtlMHeEBVVW472M9XbRy1%2F4sXgvCRay2v3g%3D%3D"; //api 서비스키
 $naraParminqryDiv = 1; //검색하고자하는 조회구분 1:등록일시, 2:입찰공고번호, 3:변경일시(등록일시로 검색시 방위사업청 입찰공고데이터의 등록일시는 방위사업청에서 제공하는 오픈 API로 연계된 입찰공고정보가 조
-$naraParminqryBgnDt = "202001010000"; //검색하고자하는 등록일시 또는 변경일시 조회시작일시 "YYYYMMDDHHMM",(조회구분 '1' 선택시 필수)
-$naraParminqryEndDt = "202012312359"; //검색하고자하는 등록일시 또는 변경일시 조회종료일시 "YYYYMMDDHHMM",(조회구분 '1' 선택시 필수)
+$naraParminqryBgnDt = "202101010000"; //검색하고자하는 등록일시 또는 변경일시 조회시작일시 "YYYYMMDDHHMM",(조회구분 '1' 선택시 필수)
+$naraParminqryEndDt = "202102282359"; //검색하고자하는 등록일시 또는 변경일시 조회종료일시 "YYYYMMDDHHMM",(조회구분 '1' 선택시 필수)
 $naraParmbidNtceNo  = "";  //검색하고자 하는 입찰공고번호,(조회구분 '2' 선택시 필수)
 $naraParmtype = "json"; //오픈API 리턴 타입을 JSON으로 받고 싶을 경우 'json'으로 지정
 
